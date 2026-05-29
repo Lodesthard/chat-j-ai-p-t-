@@ -1,0 +1,177 @@
+{
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\.github\\modernize\\java-upgrade\\hooks\\scripts\\recordToolUse.ps1": {
+    "mtime": 1780002173.621835,
+    "ast_hash": "9ecf230451dfd20ff4e0a2a01e80a4e6",
+    "semantic_hash": "9ecf230451dfd20ff4e0a2a01e80a4e6"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\.github\\modernize\\java-upgrade\\hooks\\scripts\\recordToolUse.sh": {
+    "mtime": 1780002173.6228325,
+    "ast_hash": "e25ae501603ce6bf738198f5ce32ba83",
+    "semantic_hash": "e25ae501603ce6bf738198f5ce32ba83"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\.vscode\\settings.json": {
+    "mtime": 1777371701.3876643,
+    "ast_hash": "588304d481af8236689674c6091b1925",
+    "semantic_hash": "588304d481af8236689674c6091b1925"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\ChatBotApplication.java": {
+    "mtime": 1651942386.0,
+    "ast_hash": "001d77139dc35468a3d207e519d949ec",
+    "semantic_hash": "001d77139dc35468a3d207e519d949ec"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\ListenerUpdateTelegram.java": {
+    "mtime": 1778495309.766994,
+    "ast_hash": "0b58c2dd57da132fea516996898977c5",
+    "semantic_hash": "0b58c2dd57da132fea516996898977c5"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\client\\ClientRestTest.java": {
+    "mtime": 1651960752.0,
+    "ast_hash": "6861a52b1545c30539f9143042f03c5d",
+    "semantic_hash": "6861a52b1545c30539f9143042f03c5d"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\controller\\MessageRestController.java": {
+    "mtime": 1780003738.8008673,
+    "ast_hash": "fe45fbe779eb0fcdbaca09460ebac080",
+    "semantic_hash": "fe45fbe779eb0fcdbaca09460ebac080"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\ApiResponseTelegram.java": {
+    "mtime": 1651940872.0,
+    "ast_hash": "bb9174b7a50b19eaca819fe1084de08e",
+    "semantic_hash": "bb9174b7a50b19eaca819fe1084de08e"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\ApiResponseUpdateTelegram.java": {
+    "mtime": 1651940872.0,
+    "ast_hash": "0ad7c63033f22bd4941e06cf2e1783d9",
+    "semantic_hash": "0ad7c63033f22bd4941e06cf2e1783d9"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\Audio.java": {
+    "mtime": 1651917026.0,
+    "ast_hash": "5a7eaf094d3d27e3af35dd2d27e13347",
+    "semantic_hash": "5a7eaf094d3d27e3af35dd2d27e13347"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\BotApiObject.java": {
+    "mtime": 1651916756.0,
+    "ast_hash": "79bc22e78b1c73c6111e1e16315cb2d7",
+    "semantic_hash": "79bc22e78b1c73c6111e1e16315cb2d7"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\Chat.java": {
+    "mtime": 1777370641.8061216,
+    "ast_hash": "6b1a2dc3e62aa9215ba19b1319666347",
+    "semantic_hash": "6b1a2dc3e62aa9215ba19b1319666347"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\ChatInviteLink.java": {
+    "mtime": 1651922610.0,
+    "ast_hash": "9f17b035841bf7faba040bb82bde7222",
+    "semantic_hash": "9f17b035841bf7faba040bb82bde7222"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\ChatJoinRequest.java": {
+    "mtime": 1651922594.0,
+    "ast_hash": "c358aecb6cebf1e2d122c1dedb9cc9c3",
+    "semantic_hash": "c358aecb6cebf1e2d122c1dedb9cc9c3"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\ChatLocation.java": {
+    "mtime": 1651916970.0,
+    "ast_hash": "ee246ac61e3b25def4788211b5c16176",
+    "semantic_hash": "ee246ac61e3b25def4788211b5c16176"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\ChatMemberUpdated.java": {
+    "mtime": 1651922710.0,
+    "ast_hash": "182db002d857a1fc566f4cad95519f21",
+    "semantic_hash": "182db002d857a1fc566f4cad95519f21"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\ChatPermissions.java": {
+    "mtime": 1651916990.0,
+    "ast_hash": "af4828025a4f0cc54c0f99129c6850a0",
+    "semantic_hash": "af4828025a4f0cc54c0f99129c6850a0"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\ChatPhoto.java": {
+    "mtime": 1651916950.0,
+    "ast_hash": "349f7ebf4db80a3435a52ff3ebe57466",
+    "semantic_hash": "349f7ebf4db80a3435a52ff3ebe57466"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\Contact.java": {
+    "mtime": 1651917230.0,
+    "ast_hash": "6c47a9363f8d3876fb691600a0d8b46b",
+    "semantic_hash": "6c47a9363f8d3876fb691600a0d8b46b"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\Document.java": {
+    "mtime": 1651917048.0,
+    "ast_hash": "bd0dd85e642d9ec8204f52d0f62c5557",
+    "semantic_hash": "bd0dd85e642d9ec8204f52d0f62c5557"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\Location.java": {
+    "mtime": 1651916970.0,
+    "ast_hash": "e9e40a940cd7cced73dc04e891ccae34",
+    "semantic_hash": "e9e40a940cd7cced73dc04e891ccae34"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\Message.java": {
+    "mtime": 1651917230.0,
+    "ast_hash": "7f8a2cd861a16316ec860aa973847181",
+    "semantic_hash": "7f8a2cd861a16316ec860aa973847181"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\MessageEntity.java": {
+    "mtime": 1651917002.0,
+    "ast_hash": "6db8f521a01318aabf8c9a17caf3e672",
+    "semantic_hash": "6db8f521a01318aabf8c9a17caf3e672"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\PhotoSize.java": {
+    "mtime": 1651917038.0,
+    "ast_hash": "69a41ae5b0f378290de529f9c8200601",
+    "semantic_hash": "69a41ae5b0f378290de529f9c8200601"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\ResponseParameters.java": {
+    "mtime": 1651917286.0,
+    "ast_hash": "5ac012ff4dee1e9173a83dc28db6c620",
+    "semantic_hash": "5ac012ff4dee1e9173a83dc28db6c620"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\Update.java": {
+    "mtime": 1651922710.0,
+    "ast_hash": "e5c5572050513bd2b9d255c7140146f3",
+    "semantic_hash": "e5c5572050513bd2b9d255c7140146f3"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\User.java": {
+    "mtime": 1651916906.0,
+    "ast_hash": "d6b7930e4b7c036042dd0e603bb08d4b",
+    "semantic_hash": "d6b7930e4b7c036042dd0e603bb08d4b"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\src\\main\\java\\fr\\ensim\\interop\\introrest\\model\\telegram\\Video.java": {
+    "mtime": 1651917130.0,
+    "ast_hash": "552fc658c395adaa1f92724b1d809649",
+    "semantic_hash": "552fc658c395adaa1f92724b1d809649"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\CLAUDE.md": {
+    "mtime": 1778494314.3325782,
+    "ast_hash": "033b75b45fceec2083c9cb545fd2d1c6",
+    "semantic_hash": "033b75b45fceec2083c9cb545fd2d1c6"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\README.md": {
+    "mtime": 1777369848.1968558,
+    "ast_hash": "cf6fc9b4de553be99f078e02faeef7f7",
+    "semantic_hash": "cf6fc9b4de553be99f078e02faeef7f7"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\mini-projet-eval-interop.pdf": {
+    "mtime": 1778488210.2549617,
+    "ast_hash": "89a757de7e174cbff4e6852971b32937",
+    "semantic_hash": "89a757de7e174cbff4e6852971b32937"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\.remember\\tmp\\last-ndc.ts": {
+    "mtime": 1780003448.44017,
+    "ast_hash": "3e0c01cfb69f2a13abe1f0b0b15fb0f7",
+    "semantic_hash": "3e0c01cfb69f2a13abe1f0b0b15fb0f7"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\.remember\\tmp\\last-save.json": {
+    "mtime": 1780003448.3666072,
+    "ast_hash": "7b650a0a1a93e9cbfdbf11f1b8fda78d",
+    "semantic_hash": "7b650a0a1a93e9cbfdbf11f1b8fda78d"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\.remember\\now.md": {
+    "mtime": 1780003461.268441,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "C:\\Users\\bidbi\\Documents\\Interoperabilite\\chat-j-ai-p-t-\\.remember\\today-2026-05-28.md": {
+    "mtime": 1780003461.267445,
+    "ast_hash": "5d9baac445002aa7e261a25c9c1d67af",
+    "semantic_hash": "5d9baac445002aa7e261a25c9c1d67af"
+  }
+}

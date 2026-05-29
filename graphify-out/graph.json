@@ -1,0 +1,4588 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "botapiobject_model_family",
+        "label": "Telegram BotApiObject Model Family",
+        "nodes": [
+          "botapiobject_interface",
+          "audio_class",
+          "chat_class",
+          "chatinvitelink_class",
+          "chatjoinrequest_class",
+          "chatlocation_class",
+          "chatmemberupdated_class"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/BotApiObject.java"
+      },
+      {
+        "id": "telegram_polling_flow",
+        "label": "Telegram Update Polling Flow",
+        "nodes": [
+          "listenerupdatetelegram_run",
+          "listenerupdatetelegram_pollupdates",
+          "listenerupdatetelegram_handleupdate",
+          "listenerupdatetelegram_sendmessage"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java"
+      },
+      {
+        "id": "message_media_payloads",
+        "label": "Message media payload composition",
+        "nodes": [
+          "message_Message",
+          "document_Document",
+          "video_Video",
+          "photosize_PhotoSize",
+          "contact_Contact",
+          "location_Location"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java"
+      },
+      {
+        "id": "telegram_update_polling_flow",
+        "label": "Telegram getUpdates polling data flow",
+        "nodes": [
+          "pdf_Requirement_Polling",
+          "update_Update",
+          "message_Message"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "mini-projet-eval-interop.pdf"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "recordToolUse.ps1",
+      "file_type": "code",
+      "source_file": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.ps1",
+      "source_location": "L1",
+      "community": 19,
+      "norm_label": "recordtooluse.ps1",
+      "id": "github_modernize_java_upgrade_hooks_scripts_recordtooluse_ps1"
+    },
+    {
+      "label": "recordToolUse.sh",
+      "file_type": "code",
+      "source_file": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "community": 17,
+      "norm_label": "recordtooluse.sh",
+      "id": "github_modernize_java_upgrade_hooks_scripts_recordtooluse_sh"
+    },
+    {
+      "label": "recordToolUse.sh script",
+      "file_type": "code",
+      "source_file": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "community": 17,
+      "norm_label": "recordtooluse.sh script",
+      "id": "c_users_bidbi_documents_interoperabilite_chat_j_ai_p_t_github_modernize_java_upgrade_hooks_scripts_recordtooluse_sh__entry"
+    },
+    {
+      "label": "settings.json",
+      "file_type": "code",
+      "source_file": ".vscode/settings.json",
+      "source_location": "L1",
+      "community": 16,
+      "norm_label": "settings.json",
+      "id": "vscode_settings_json"
+    },
+    {
+      "label": "java.compile.nullAnalysis.mode",
+      "file_type": "code",
+      "source_file": ".vscode/settings.json",
+      "source_location": "L2",
+      "community": 16,
+      "norm_label": "java.compile.nullanalysis.mode",
+      "id": "vscode_settings_java_compile_nullanalysis_mode"
+    },
+    {
+      "label": "java.configuration.updateBuildConfiguration",
+      "file_type": "code",
+      "source_file": ".vscode/settings.json",
+      "source_location": "L3",
+      "community": 16,
+      "norm_label": "java.configuration.updatebuildconfiguration",
+      "id": "vscode_settings_java_configuration_updatebuildconfiguration"
+    },
+    {
+      "label": "ChatBotApplication.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java",
+      "source_location": "L1",
+      "community": 9,
+      "norm_label": "chatbotapplication.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_chatbotapplication_java"
+    },
+    {
+      "label": "ChatBotApplication",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java",
+      "source_location": "L6",
+      "community": 9,
+      "norm_label": "chatbotapplication",
+      "id": "introrest_chatbotapplication_chatbotapplication"
+    },
+    {
+      "label": ".main()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java",
+      "source_location": "L9",
+      "community": 9,
+      "norm_label": ".main()",
+      "id": "introrest_chatbotapplication_chatbotapplication_main"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java",
+      "source_location": "L9",
+      "community": 9,
+      "norm_label": "string",
+      "id": "src_main_java_fr_ensim_interop_introrest_chatbotapplication_java_string"
+    },
+    {
+      "label": "ListenerUpdateTelegram.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "listenerupdatetelegram.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java"
+    },
+    {
+      "label": "ListenerUpdateTelegram",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L18",
+      "community": 2,
+      "norm_label": "listenerupdatetelegram",
+      "id": "introrest_listenerupdatetelegram_listenerupdatetelegram"
+    },
+    {
+      "label": "CommandLineRunner",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "community": 2,
+      "norm_label": "commandlinerunner",
+      "id": "commandlinerunner"
+    },
+    {
+      "label": ".run()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L32",
+      "community": 9,
+      "norm_label": ".run()",
+      "id": "introrest_listenerupdatetelegram_listenerupdatetelegram_run"
+    },
+    {
+      "label": "Override",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L32",
+      "community": 9,
+      "norm_label": "override",
+      "id": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java_override"
+    },
+    {
+      "label": ".pollUpdates()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L45",
+      "community": 2,
+      "norm_label": ".pollupdates()",
+      "id": "introrest_listenerupdatetelegram_listenerupdatetelegram_pollupdates"
+    },
+    {
+      "label": ".handleUpdate()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L60",
+      "community": 2,
+      "norm_label": ".handleupdate()",
+      "id": "introrest_listenerupdatetelegram_listenerupdatetelegram_handleupdate"
+    },
+    {
+      "label": "Update",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L60",
+      "community": 2,
+      "norm_label": "update",
+      "id": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java_update"
+    },
+    {
+      "label": ".sendMessage()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L80",
+      "community": 2,
+      "norm_label": ".sendmessage()",
+      "id": "introrest_listenerupdatetelegram_listenerupdatetelegram_sendmessage"
+    },
+    {
+      "label": "Long",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L80",
+      "community": 2,
+      "norm_label": "long",
+      "id": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java_long"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L80",
+      "community": 2,
+      "norm_label": "string",
+      "id": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java_string"
+    },
+    {
+      "label": "ClientRestTest.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/client/ClientRestTest.java",
+      "source_location": "L1",
+      "community": 10,
+      "norm_label": "clientresttest.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_client_clientresttest_java"
+    },
+    {
+      "label": "ClientRestTest",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/client/ClientRestTest.java",
+      "source_location": "L3",
+      "community": 10,
+      "norm_label": "clientresttest",
+      "id": "client_clientresttest_clientresttest"
+    },
+    {
+      "label": ".main()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/client/ClientRestTest.java",
+      "source_location": "L5",
+      "community": 10,
+      "norm_label": ".main()",
+      "id": "client_clientresttest_clientresttest_main"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/client/ClientRestTest.java",
+      "source_location": "L5",
+      "community": 10,
+      "norm_label": "string",
+      "id": "src_main_java_fr_ensim_interop_introrest_client_clientresttest_java_string"
+    },
+    {
+      "label": "MessageRestController.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "messagerestcontroller.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_controller_messagerestcontroller_java"
+    },
+    {
+      "label": "MessageRestController",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L20",
+      "community": 5,
+      "norm_label": "messagerestcontroller",
+      "id": "controller_messagerestcontroller_messagerestcontroller"
+    },
+    {
+      "label": "ApiResponseTelegram.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "apiresponsetelegram.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java"
+    },
+    {
+      "label": "ApiResponseTelegram",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L15",
+      "community": 0,
+      "norm_label": "apiresponsetelegram",
+      "id": "telegram_apiresponsetelegram_apiresponsetelegram"
+    },
+    {
+      "label": "Serializable",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "community": 0,
+      "norm_label": "serializable",
+      "id": "serializable"
+    },
+    {
+      "label": ".getOk()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L40",
+      "community": 0,
+      "norm_label": ".getok()",
+      "id": "telegram_apiresponsetelegram_apiresponsetelegram_getok"
+    },
+    {
+      "label": "Boolean",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L40",
+      "community": 0,
+      "norm_label": "boolean",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java_boolean"
+    },
+    {
+      "label": ".getErrorCode()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L44",
+      "community": 0,
+      "norm_label": ".geterrorcode()",
+      "id": "telegram_apiresponsetelegram_apiresponsetelegram_geterrorcode"
+    },
+    {
+      "label": "Integer",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L44",
+      "community": 0,
+      "norm_label": "integer",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java_integer"
+    },
+    {
+      "label": ".getErrorDescription()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L48",
+      "community": 0,
+      "norm_label": ".geterrordescription()",
+      "id": "telegram_apiresponsetelegram_apiresponsetelegram_geterrordescription"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L48",
+      "community": 0,
+      "norm_label": "string",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java_string"
+    },
+    {
+      "label": ".getResult()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L52",
+      "community": 0,
+      "norm_label": ".getresult()",
+      "id": "telegram_apiresponsetelegram_apiresponsetelegram_getresult"
+    },
+    {
+      "label": "T",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L52",
+      "community": 0,
+      "norm_label": "t",
+      "id": "t"
+    },
+    {
+      "label": ".getParameters()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L56",
+      "community": 0,
+      "norm_label": ".getparameters()",
+      "id": "telegram_apiresponsetelegram_apiresponsetelegram_getparameters"
+    },
+    {
+      "label": "ResponseParameters",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L56",
+      "community": 0,
+      "norm_label": "responseparameters",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java_responseparameters"
+    },
+    {
+      "label": ".toString()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L60",
+      "community": 0,
+      "norm_label": ".tostring()",
+      "id": "telegram_apiresponsetelegram_apiresponsetelegram_tostring"
+    },
+    {
+      "label": "Override",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L60",
+      "community": 0,
+      "norm_label": "override",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java_override"
+    },
+    {
+      "label": "ApiResponseUpdateTelegram.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "apiresponseupdatetelegram.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java"
+    },
+    {
+      "label": "ApiResponseUpdateTelegram",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L16",
+      "community": 4,
+      "norm_label": "apiresponseupdatetelegram",
+      "id": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram"
+    },
+    {
+      "label": ".getOk()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L41",
+      "community": 4,
+      "norm_label": ".getok()",
+      "id": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_getok"
+    },
+    {
+      "label": "Boolean",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L41",
+      "community": 4,
+      "norm_label": "boolean",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_boolean"
+    },
+    {
+      "label": ".getErrorCode()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L45",
+      "community": 4,
+      "norm_label": ".geterrorcode()",
+      "id": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_geterrorcode"
+    },
+    {
+      "label": "Integer",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L45",
+      "community": 4,
+      "norm_label": "integer",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_integer"
+    },
+    {
+      "label": ".getErrorDescription()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L49",
+      "community": 4,
+      "norm_label": ".geterrordescription()",
+      "id": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_geterrordescription"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L49",
+      "community": 4,
+      "norm_label": "string",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_string"
+    },
+    {
+      "label": ".getResult()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L53",
+      "community": 4,
+      "norm_label": ".getresult()",
+      "id": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_getresult"
+    },
+    {
+      "label": "List",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L53",
+      "community": 4,
+      "norm_label": "list",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_list"
+    },
+    {
+      "label": "Update",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L53",
+      "community": 4,
+      "norm_label": "update",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_update"
+    },
+    {
+      "label": ".getParameters()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L57",
+      "community": 4,
+      "norm_label": ".getparameters()",
+      "id": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_getparameters"
+    },
+    {
+      "label": "ResponseParameters",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L57",
+      "community": 4,
+      "norm_label": "responseparameters",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_responseparameters"
+    },
+    {
+      "label": ".toString()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L61",
+      "community": 4,
+      "norm_label": ".tostring()",
+      "id": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_tostring"
+    },
+    {
+      "label": "Override",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L61",
+      "community": 4,
+      "norm_label": "override",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_override"
+    },
+    {
+      "label": "Audio.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Audio.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "audio.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_audio_java"
+    },
+    {
+      "label": "Audio",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Audio.java",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "audio",
+      "id": "telegram_audio_audio"
+    },
+    {
+      "label": "BotApiObject.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/BotApiObject.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "botapiobject.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_botapiobject_java"
+    },
+    {
+      "label": "BotApiObject",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/BotApiObject.java",
+      "source_location": "L13",
+      "community": 0,
+      "norm_label": "botapiobject",
+      "id": "telegram_botapiobject_botapiobject"
+    },
+    {
+      "label": "Chat.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L1",
+      "community": 7,
+      "norm_label": "chat.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java"
+    },
+    {
+      "label": "Chat",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L12",
+      "community": 7,
+      "norm_label": "chat",
+      "id": "telegram_chat_chat"
+    },
+    {
+      "label": ".isGroupChat()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L122",
+      "community": 7,
+      "norm_label": ".isgroupchat()",
+      "id": "telegram_chat_chat_isgroupchat"
+    },
+    {
+      "label": "Boolean",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L122",
+      "community": 7,
+      "norm_label": "boolean",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java_boolean"
+    },
+    {
+      "label": "JsonIgnore",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L122",
+      "community": 7,
+      "norm_label": "jsonignore",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java_jsonignore"
+    },
+    {
+      "label": ".isChannelChat()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L127",
+      "community": 7,
+      "norm_label": ".ischannelchat()",
+      "id": "telegram_chat_chat_ischannelchat"
+    },
+    {
+      "label": ".isUserChat()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L132",
+      "community": 7,
+      "norm_label": ".isuserchat()",
+      "id": "telegram_chat_chat_isuserchat"
+    },
+    {
+      "label": ".isSuperGroupChat()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L137",
+      "community": 7,
+      "norm_label": ".issupergroupchat()",
+      "id": "telegram_chat_chat_issupergroupchat"
+    },
+    {
+      "label": "ChatInviteLink.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatInviteLink.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "chatinvitelink.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatinvitelink_java"
+    },
+    {
+      "label": "ChatInviteLink",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatInviteLink.java",
+      "source_location": "L12",
+      "community": 0,
+      "norm_label": "chatinvitelink",
+      "id": "telegram_chatinvitelink_chatinvitelink"
+    },
+    {
+      "label": "ChatJoinRequest.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatJoinRequest.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "chatjoinrequest.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatjoinrequest_java"
+    },
+    {
+      "label": "ChatJoinRequest",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatJoinRequest.java",
+      "source_location": "L12",
+      "community": 0,
+      "norm_label": "chatjoinrequest",
+      "id": "telegram_chatjoinrequest_chatjoinrequest"
+    },
+    {
+      "label": "ChatLocation.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatLocation.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "chatlocation.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatlocation_java"
+    },
+    {
+      "label": "ChatLocation",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatLocation.java",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "chatlocation",
+      "id": "telegram_chatlocation_chatlocation"
+    },
+    {
+      "label": "ChatMemberUpdated.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatMemberUpdated.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "chatmemberupdated.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatmemberupdated_java"
+    },
+    {
+      "label": "ChatMemberUpdated",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatMemberUpdated.java",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "chatmemberupdated",
+      "id": "telegram_chatmemberupdated_chatmemberupdated"
+    },
+    {
+      "label": "ChatPermissions.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatPermissions.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "chatpermissions.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatpermissions_java"
+    },
+    {
+      "label": "ChatPermissions",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatPermissions.java",
+      "source_location": "L13",
+      "community": 0,
+      "norm_label": "chatpermissions",
+      "id": "telegram_chatpermissions_chatpermissions"
+    },
+    {
+      "label": "ChatPhoto.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatPhoto.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "chatphoto.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatphoto_java"
+    },
+    {
+      "label": "ChatPhoto",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatPhoto.java",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "chatphoto",
+      "id": "telegram_chatphoto_chatphoto"
+    },
+    {
+      "label": "Contact.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Contact.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "contact.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_contact_java"
+    },
+    {
+      "label": "Contact",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Contact.java",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "contact",
+      "id": "telegram_contact_contact"
+    },
+    {
+      "label": "Document.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Document.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "document.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_document_java"
+    },
+    {
+      "label": "Document",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Document.java",
+      "source_location": "L12",
+      "community": 0,
+      "norm_label": "document",
+      "id": "telegram_document_document"
+    },
+    {
+      "label": "Location.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Location.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "location.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_location_java"
+    },
+    {
+      "label": "Location",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Location.java",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "location",
+      "id": "telegram_location_location"
+    },
+    {
+      "label": "Message.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L1",
+      "community": 1,
+      "norm_label": "message.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java"
+    },
+    {
+      "label": "Message",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L15",
+      "community": 1,
+      "norm_label": "message",
+      "id": "telegram_message_message"
+    },
+    {
+      "label": ".getEntities()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L218",
+      "community": 1,
+      "norm_label": ".getentities()",
+      "id": "telegram_message_message_getentities"
+    },
+    {
+      "label": "List",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L218",
+      "community": 1,
+      "norm_label": "list",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_list"
+    },
+    {
+      "label": "MessageEntity",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L218",
+      "community": 1,
+      "norm_label": "messageentity",
+      "id": "messageentity"
+    },
+    {
+      "label": ".getCaptionEntities()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L225",
+      "community": 1,
+      "norm_label": ".getcaptionentities()",
+      "id": "telegram_message_message_getcaptionentities"
+    },
+    {
+      "label": ".getNewChatMembers()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L232",
+      "community": 1,
+      "norm_label": ".getnewchatmembers()",
+      "id": "telegram_message_message_getnewchatmembers"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L232",
+      "community": 1,
+      "norm_label": "user",
+      "id": "user"
+    },
+    {
+      "label": "JsonIgnore",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L232",
+      "community": 1,
+      "norm_label": "jsonignore",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore"
+    },
+    {
+      "label": ".isGroupMessage()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L237",
+      "community": 1,
+      "norm_label": ".isgroupmessage()",
+      "id": "telegram_message_message_isgroupmessage"
+    },
+    {
+      "label": ".isUserMessage()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L242",
+      "community": 1,
+      "norm_label": ".isusermessage()",
+      "id": "telegram_message_message_isusermessage"
+    },
+    {
+      "label": ".isChannelMessage()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L247",
+      "community": 1,
+      "norm_label": ".ischannelmessage()",
+      "id": "telegram_message_message_ischannelmessage"
+    },
+    {
+      "label": ".isSuperGroupMessage()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L252",
+      "community": 1,
+      "norm_label": ".issupergroupmessage()",
+      "id": "telegram_message_message_issupergroupmessage"
+    },
+    {
+      "label": ".getChatId()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L257",
+      "community": 1,
+      "norm_label": ".getchatid()",
+      "id": "telegram_message_message_getchatid"
+    },
+    {
+      "label": "Long",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L257",
+      "community": 1,
+      "norm_label": "long",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_long"
+    },
+    {
+      "label": ".hasText()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L262",
+      "community": 1,
+      "norm_label": ".hastext()",
+      "id": "telegram_message_message_hastext"
+    },
+    {
+      "label": ".hasDocument()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L267",
+      "community": 1,
+      "norm_label": ".hasdocument()",
+      "id": "telegram_message_message_hasdocument"
+    },
+    {
+      "label": ".hasVideo()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L272",
+      "community": 1,
+      "norm_label": ".hasvideo()",
+      "id": "telegram_message_message_hasvideo"
+    },
+    {
+      "label": ".hasAudio()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L277",
+      "community": 1,
+      "norm_label": ".hasaudio()",
+      "id": "telegram_message_message_hasaudio"
+    },
+    {
+      "label": ".isReply()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L282",
+      "community": 1,
+      "norm_label": ".isreply()",
+      "id": "telegram_message_message_isreply"
+    },
+    {
+      "label": ".hasLocation()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L287",
+      "community": 1,
+      "norm_label": ".haslocation()",
+      "id": "telegram_message_message_haslocation"
+    },
+    {
+      "label": ".hasEntities()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L292",
+      "community": 1,
+      "norm_label": ".hasentities()",
+      "id": "telegram_message_message_hasentities"
+    },
+    {
+      "label": ".hasPhoto()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L297",
+      "community": 1,
+      "norm_label": ".hasphoto()",
+      "id": "telegram_message_message_hasphoto"
+    },
+    {
+      "label": ".hasContact()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L302",
+      "community": 1,
+      "norm_label": ".hascontact()",
+      "id": "telegram_message_message_hascontact"
+    },
+    {
+      "label": ".hasViaBot()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L307",
+      "community": 1,
+      "norm_label": ".hasviabot()",
+      "id": "telegram_message_message_hasviabot"
+    },
+    {
+      "label": "MessageEntity.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/MessageEntity.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "messageentity.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_messageentity_java"
+    },
+    {
+      "label": "MessageEntity",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/MessageEntity.java",
+      "source_location": "L13",
+      "community": 0,
+      "norm_label": "messageentity",
+      "id": "telegram_messageentity_messageentity"
+    },
+    {
+      "label": ".computeText()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/MessageEntity.java",
+      "source_location": "L67",
+      "community": 1,
+      "norm_label": ".computetext()",
+      "id": "telegram_messageentity_messageentity_computetext"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/MessageEntity.java",
+      "source_location": "L67",
+      "community": 1,
+      "norm_label": "string",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_messageentity_java_string"
+    },
+    {
+      "label": "PhotoSize.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/PhotoSize.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "photosize.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_photosize_java"
+    },
+    {
+      "label": "PhotoSize",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/PhotoSize.java",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "photosize",
+      "id": "telegram_photosize_photosize"
+    },
+    {
+      "label": "ResponseParameters.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ResponseParameters.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "responseparameters.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_responseparameters_java"
+    },
+    {
+      "label": "ResponseParameters",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ResponseParameters.java",
+      "source_location": "L28",
+      "community": 0,
+      "norm_label": "responseparameters",
+      "id": "telegram_responseparameters_responseparameters"
+    },
+    {
+      "label": "Update.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L1",
+      "community": 2,
+      "norm_label": "update.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_update_java"
+    },
+    {
+      "label": "Update",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L14",
+      "community": 2,
+      "norm_label": "update",
+      "id": "telegram_update_update"
+    },
+    {
+      "label": ".hasMessage()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L67",
+      "community": 2,
+      "norm_label": ".hasmessage()",
+      "id": "telegram_update_update_hasmessage"
+    },
+    {
+      "label": ".hasEditedMessage()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L71",
+      "community": 2,
+      "norm_label": ".haseditedmessage()",
+      "id": "telegram_update_update_haseditedmessage"
+    },
+    {
+      "label": ".hasChannelPost()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L75",
+      "community": 2,
+      "norm_label": ".haschannelpost()",
+      "id": "telegram_update_update_haschannelpost"
+    },
+    {
+      "label": ".hasEditedChannelPost()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L79",
+      "community": 2,
+      "norm_label": ".haseditedchannelpost()",
+      "id": "telegram_update_update_haseditedchannelpost"
+    },
+    {
+      "label": ".hasMyChatMember()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L83",
+      "community": 2,
+      "norm_label": ".hasmychatmember()",
+      "id": "telegram_update_update_hasmychatmember"
+    },
+    {
+      "label": ".hasChatMember()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L87",
+      "community": 2,
+      "norm_label": ".haschatmember()",
+      "id": "telegram_update_update_haschatmember"
+    },
+    {
+      "label": ".hasChatJoinRequest()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L91",
+      "community": 2,
+      "norm_label": ".haschatjoinrequest()",
+      "id": "telegram_update_update_haschatjoinrequest"
+    },
+    {
+      "label": "User.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/User.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "user.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_user_java"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/User.java",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "user",
+      "id": "telegram_user_user"
+    },
+    {
+      "label": "Video.java",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Video.java",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "video.java",
+      "id": "src_main_java_fr_ensim_interop_introrest_model_telegram_video_java"
+    },
+    {
+      "label": "Video",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Video.java",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "video",
+      "id": "telegram_video_video"
+    },
+    {
+      "label": "ChatBotApplication.main",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java",
+      "source_location": "line 9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "chatbotapplication.main",
+      "id": "chatbotapplication_main"
+    },
+    {
+      "label": "ChatBotApplication",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java",
+      "source_location": "line 7",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "chatbotapplication",
+      "id": "chatbotapplication_class"
+    },
+    {
+      "label": "ListenerUpdateTelegram",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "line 19",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 12,
+      "norm_label": "listenerupdatetelegram",
+      "id": "listenerupdatetelegram_class"
+    },
+    {
+      "label": "ListenerUpdateTelegram.run",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "line 33",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "listenerupdatetelegram.run",
+      "id": "listenerupdatetelegram_run"
+    },
+    {
+      "label": "ListenerUpdateTelegram.pollUpdates",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "line 45",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "listenerupdatetelegram.pollupdates",
+      "id": "listenerupdatetelegram_pollupdates"
+    },
+    {
+      "label": "ListenerUpdateTelegram.handleUpdate",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "line 60",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "listenerupdatetelegram.handleupdate",
+      "id": "listenerupdatetelegram_handleupdate"
+    },
+    {
+      "label": "ListenerUpdateTelegram.sendMessage",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "line 80",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "listenerupdatetelegram.sendmessage",
+      "id": "listenerupdatetelegram_sendmessage"
+    },
+    {
+      "label": "Telegram getUpdates Polling Pattern",
+      "file_type": "rationale",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "lines 36-58",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 12,
+      "norm_label": "telegram getupdates polling pattern",
+      "id": "telegram_polling_pattern"
+    },
+    {
+      "label": "ClientRestTest.main",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/client/ClientRestTest.java",
+      "source_location": "line 5",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 20,
+      "norm_label": "clientresttest.main",
+      "id": "clientresttest_main"
+    },
+    {
+      "label": "MessageRestController",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "line 7",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 12,
+      "norm_label": "messagerestcontroller",
+      "id": "messagerestcontroller_class"
+    },
+    {
+      "label": "ApiResponseTelegram",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "line 22",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 6,
+      "norm_label": "apiresponsetelegram",
+      "id": "apiresponsetelegram_class"
+    },
+    {
+      "label": "ApiResponseUpdateTelegram",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "line 23",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 6,
+      "norm_label": "apiresponseupdatetelegram",
+      "id": "apiresponseupdatetelegram_class"
+    },
+    {
+      "label": "BotApiObject",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/BotApiObject.java",
+      "source_location": "line 15",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 8,
+      "norm_label": "botapiobject",
+      "id": "botapiobject_interface"
+    },
+    {
+      "label": "Audio",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Audio.java",
+      "source_location": "line 17",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 8,
+      "norm_label": "audio",
+      "id": "audio_class"
+    },
+    {
+      "label": "Chat",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "line 20",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 8,
+      "norm_label": "chat",
+      "id": "chat_class"
+    },
+    {
+      "label": "ChatInviteLink",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatInviteLink.java",
+      "source_location": "line 18",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 8,
+      "norm_label": "chatinvitelink",
+      "id": "chatinvitelink_class"
+    },
+    {
+      "label": "ChatJoinRequest",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatJoinRequest.java",
+      "source_location": "line 18",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 8,
+      "norm_label": "chatjoinrequest",
+      "id": "chatjoinrequest_class"
+    },
+    {
+      "label": "ChatLocation",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatLocation.java",
+      "source_location": "line 18",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 8,
+      "norm_label": "chatlocation",
+      "id": "chatlocation_class"
+    },
+    {
+      "label": "ChatMemberUpdated",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatMemberUpdated.java",
+      "source_location": "line 17",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 8,
+      "norm_label": "chatmemberupdated",
+      "id": "chatmemberupdated_class"
+    },
+    {
+      "label": "recordToolUse.ps1",
+      "file_type": "code",
+      "source_file": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.ps1",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 14,
+      "norm_label": "recordtooluse.ps1",
+      "id": "recordtooluse_ps1"
+    },
+    {
+      "label": "recordToolUse.sh",
+      "file_type": "code",
+      "source_file": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.sh",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 14,
+      "norm_label": "recordtooluse.sh",
+      "id": "recordtooluse_sh"
+    },
+    {
+      "label": "Tool Use JSONL Recording Hook",
+      "file_type": "rationale",
+      "source_file": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.ps1",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 14,
+      "norm_label": "tool use jsonl recording hook",
+      "id": "tool_use_recording_hook"
+    },
+    {
+      "label": "Message (Telegram model)",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "message (telegram model)",
+      "id": "message_Message"
+    },
+    {
+      "label": "Update (Telegram model)",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "update (telegram model)",
+      "id": "update_Update"
+    },
+    {
+      "label": "User (Telegram model)",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/User.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "user (telegram model)",
+      "id": "user_User"
+    },
+    {
+      "label": "MessageEntity",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/MessageEntity.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "messageentity",
+      "id": "messageentity_MessageEntity"
+    },
+    {
+      "label": "Contact",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Contact.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "contact",
+      "id": "contact_Contact"
+    },
+    {
+      "label": "Document",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Document.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "document",
+      "id": "document_Document"
+    },
+    {
+      "label": "Video",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Video.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "video",
+      "id": "video_Video"
+    },
+    {
+      "label": "PhotoSize",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/PhotoSize.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "photosize",
+      "id": "photosize_PhotoSize"
+    },
+    {
+      "label": "Location",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Location.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "location",
+      "id": "location_Location"
+    },
+    {
+      "label": "ChatPhoto",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatPhoto.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 21,
+      "norm_label": "chatphoto",
+      "id": "chatphoto_ChatPhoto"
+    },
+    {
+      "label": "ChatPermissions",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatPermissions.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 22,
+      "norm_label": "chatpermissions",
+      "id": "chatpermissions_ChatPermissions"
+    },
+    {
+      "label": "ResponseParameters",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ResponseParameters.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Ruben Bermudez",
+      "contributor": null,
+      "community": 23,
+      "norm_label": "responseparameters",
+      "id": "responseparameters_ResponseParameters"
+    },
+    {
+      "label": "BotApiObject (marker interface)",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "botapiobject (marker interface)",
+      "id": "telegram_BotApiObject"
+    },
+    {
+      "label": "Chat (Telegram model)",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "chat (telegram model)",
+      "id": "telegram_Chat"
+    },
+    {
+      "label": "Pre-built Telegram API object model",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "pre-built telegram api object model",
+      "id": "claudemd_TelegramObjectModel"
+    },
+    {
+      "label": "API requirement: message (sendMessage)",
+      "file_type": "document",
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Johan Girault",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "api requirement: message (sendmessage)",
+      "id": "pdf_Requirement_MessageOperation"
+    },
+    {
+      "label": "API requirement: weather operation",
+      "file_type": "document",
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Johan Girault",
+      "contributor": null,
+      "community": 13,
+      "norm_label": "api requirement: weather operation",
+      "id": "pdf_Requirement_WeatherOperation"
+    },
+    {
+      "label": "API requirement: joke operation",
+      "file_type": "document",
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Johan Girault",
+      "contributor": null,
+      "community": 11,
+      "norm_label": "api requirement: joke operation",
+      "id": "pdf_Requirement_JokeOperation"
+    },
+    {
+      "label": "Polling with getUpdates and offset",
+      "file_type": "document",
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.2",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Johan Girault",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "polling with getupdates and offset",
+      "id": "pdf_Requirement_Polling"
+    },
+    {
+      "label": "Provided Telegram object classes (Message, ApiResponseTelegram, ApiResponseUpdateTelegram)",
+      "file_type": "document",
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.2",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Johan Girault",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "provided telegram object classes (message, apiresponsetelegram, apiresponseupdatetelegram)",
+      "id": "pdf_Concept_ProvidedTelegramClasses"
+    },
+    {
+      "label": "Bonus: reply_to_message_id quoting",
+      "file_type": "document",
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.2",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Johan Girault",
+      "contributor": null,
+      "community": 3,
+      "norm_label": "bonus: reply_to_message_id quoting",
+      "id": "pdf_Concept_ReplyToMessage"
+    },
+    {
+      "label": "OpenAPI Specification (OAS) deliverable",
+      "file_type": "document",
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Johan Girault",
+      "contributor": null,
+      "community": 18,
+      "norm_label": "openapi specification (oas) deliverable",
+      "id": "pdf_Concept_OAS"
+    },
+    {
+      "label": "OpenWeatherMap API (5 Day / 3 Hour Forecast)",
+      "file_type": "document",
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 13,
+      "norm_label": "openweathermap api (5 day / 3 hour forecast)",
+      "id": "pdf_Concept_OpenWeatherMap"
+    },
+    {
+      "label": "Chatbot_Interoperabilite README",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 18,
+      "norm_label": "chatbot_interoperabilite readme",
+      "id": "readme_Project"
+    },
+    {
+      "label": "last-ndc.ts",
+      "file_type": "code",
+      "source_file": ".remember/tmp/last-ndc.ts",
+      "source_location": "L1",
+      "community": 24,
+      "norm_label": "last-ndc.ts",
+      "id": "remember_tmp_last_ndc_ts"
+    },
+    {
+      "label": "last-save.json",
+      "file_type": "code",
+      "source_file": ".remember/tmp/last-save.json",
+      "source_location": "L1",
+      "community": 15,
+      "norm_label": "last-save.json",
+      "id": "remember_tmp_last_save_json"
+    },
+    {
+      "label": "session",
+      "file_type": "code",
+      "source_file": ".remember/tmp/last-save.json",
+      "source_location": "L1",
+      "community": 15,
+      "norm_label": "session",
+      "id": "tmp_last_save_session"
+    },
+    {
+      "label": "line",
+      "file_type": "code",
+      "source_file": ".remember/tmp/last-save.json",
+      "source_location": "L1",
+      "community": 15,
+      "norm_label": "line",
+      "id": "tmp_last_save_line"
+    },
+    {
+      "label": ".weather()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L41",
+      "community": 5,
+      "norm_label": ".weather()",
+      "id": "controller_messagerestcontroller_messagerestcontroller_weather"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L41",
+      "community": 5,
+      "norm_label": "string",
+      "id": "string"
+    },
+    {
+      "label": "GetMapping",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L41",
+      "community": 5,
+      "norm_label": "getmapping",
+      "id": "getmapping"
+    },
+    {
+      "label": ".joke()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L64",
+      "community": 5,
+      "norm_label": ".joke()",
+      "id": "controller_messagerestcontroller_messagerestcontroller_joke"
+    },
+    {
+      "label": ".message()",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L73",
+      "community": 5,
+      "norm_label": ".message()",
+      "id": "controller_messagerestcontroller_messagerestcontroller_message"
+    },
+    {
+      "label": "Map",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L73",
+      "community": 5,
+      "norm_label": "map",
+      "id": "map"
+    },
+    {
+      "label": "Object",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L73",
+      "community": 5,
+      "norm_label": "object",
+      "id": "object"
+    },
+    {
+      "label": "PostMapping",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L73",
+      "community": 5,
+      "norm_label": "postmapping",
+      "id": "postmapping"
+    },
+    {
+      "label": "GET /weather endpoint",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 13,
+      "norm_label": "get /weather endpoint",
+      "id": "MessageRestController_weather"
+    },
+    {
+      "label": "GET /joke endpoint",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 11,
+      "norm_label": "get /joke endpoint",
+      "id": "MessageRestController_joke"
+    },
+    {
+      "label": "POST /message endpoint",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "post /message endpoint",
+      "id": "MessageRestController_message"
+    },
+    {
+      "label": "icanhazdadjoke API (https://icanhazdadjoke.com/)",
+      "file_type": "code",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": null,
+      "source_url": "https://icanhazdadjoke.com/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 11,
+      "norm_label": "icanhazdadjoke api (https://icanhazdadjoke.com/)",
+      "id": "MessageRestController_jokeApi"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "github_modernize_java_upgrade_hooks_scripts_recordtooluse_sh",
+      "target": "c_users_bidbi_documents_interoperabilite_chat_j_ai_p_t_github_modernize_java_upgrade_hooks_scripts_recordtooluse_sh__entry"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".vscode/settings.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "vscode_settings_json",
+      "target": "vscode_settings_java_compile_nullanalysis_mode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".vscode/settings.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "vscode_settings_json",
+      "target": "vscode_settings_java_configuration_updatebuildconfiguration"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_chatbotapplication_java",
+      "target": "introrest_chatbotapplication_chatbotapplication"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "introrest_chatbotapplication_chatbotapplication",
+      "target": "introrest_chatbotapplication_chatbotapplication_main"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "introrest_chatbotapplication_chatbotapplication_main",
+      "target": "src_main_java_fr_ensim_interop_introrest_chatbotapplication_java_string"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "introrest_chatbotapplication_chatbotapplication_main",
+      "target": "introrest_listenerupdatetelegram_listenerupdatetelegram_run"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java",
+      "target": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java_update"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java",
+      "target": "commandlinerunner"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java",
+      "target": "introrest_listenerupdatetelegram_listenerupdatetelegram"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram",
+      "target": "commandlinerunner"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram",
+      "target": "introrest_listenerupdatetelegram_listenerupdatetelegram_run"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram",
+      "target": "introrest_listenerupdatetelegram_listenerupdatetelegram_pollupdates"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram",
+      "target": "introrest_listenerupdatetelegram_listenerupdatetelegram_handleupdate"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram",
+      "target": "introrest_listenerupdatetelegram_listenerupdatetelegram_sendmessage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L32",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram_run",
+      "target": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java_override"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram_pollupdates",
+      "target": "introrest_listenerupdatetelegram_listenerupdatetelegram_handleupdate"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L60",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram_handleupdate",
+      "target": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java_update"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram_handleupdate",
+      "target": "introrest_listenerupdatetelegram_listenerupdatetelegram_sendmessage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram_handleupdate",
+      "target": "telegram_update_update_hasmessage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram_handleupdate",
+      "target": "telegram_message_message_hastext"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram_handleupdate",
+      "target": "telegram_message_message_getchatid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L80",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram_sendmessage",
+      "target": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java_long"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "L80",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "introrest_listenerupdatetelegram_listenerupdatetelegram_sendmessage",
+      "target": "src_main_java_fr_ensim_interop_introrest_listenerupdatetelegram_java_string"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/client/ClientRestTest.java",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_client_clientresttest_java",
+      "target": "client_clientresttest_clientresttest"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/client/ClientRestTest.java",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "client_clientresttest_clientresttest",
+      "target": "client_clientresttest_clientresttest_main"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/client/ClientRestTest.java",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "client_clientresttest_clientresttest_main",
+      "target": "src_main_java_fr_ensim_interop_introrest_client_clientresttest_java_string"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_controller_messagerestcontroller_java",
+      "target": "controller_messagerestcontroller_messagerestcontroller"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_controller_messagerestcontroller_java",
+      "target": "getmapping"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_controller_messagerestcontroller_java",
+      "target": "postmapping"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_controller_messagerestcontroller_java",
+      "target": "map"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controller_messagerestcontroller_messagerestcontroller",
+      "target": "controller_messagerestcontroller_messagerestcontroller_weather"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controller_messagerestcontroller_messagerestcontroller",
+      "target": "controller_messagerestcontroller_messagerestcontroller_joke"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "controller_messagerestcontroller_messagerestcontroller",
+      "target": "controller_messagerestcontroller_messagerestcontroller_message"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java",
+      "target": "serializable"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java",
+      "target": "telegram_apiresponsetelegram_apiresponsetelegram"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram",
+      "target": "serializable"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram",
+      "target": "telegram_apiresponsetelegram_apiresponsetelegram_getok"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram",
+      "target": "telegram_apiresponsetelegram_apiresponsetelegram_geterrorcode"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram",
+      "target": "telegram_apiresponsetelegram_apiresponsetelegram_geterrordescription"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram",
+      "target": "telegram_apiresponsetelegram_apiresponsetelegram_getresult"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram",
+      "target": "telegram_apiresponsetelegram_apiresponsetelegram_getparameters"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram",
+      "target": "telegram_apiresponsetelegram_apiresponsetelegram_tostring"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "serializable",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "serializable",
+      "target": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/BotApiObject.java",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "serializable",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_botapiobject_java"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/BotApiObject.java",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "serializable",
+      "target": "telegram_botapiobject_botapiobject"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L40",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram_getok",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java_boolean"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L44",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram_geterrorcode",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java_integer"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L48",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram_geterrordescription",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L60",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java_string",
+      "target": "telegram_apiresponsetelegram_apiresponsetelegram_tostring"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L52",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram_getresult",
+      "target": "t"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L56",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram_getparameters",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java_responseparameters"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java",
+      "source_location": "L60",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponsetelegram_apiresponsetelegram_tostring",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponsetelegram_java_override"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_list"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java",
+      "target": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram",
+      "target": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_getok"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram",
+      "target": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_geterrorcode"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram",
+      "target": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_geterrordescription"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram",
+      "target": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_getresult"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram",
+      "target": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_getparameters"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram",
+      "target": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_tostring"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L41",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_getok",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_boolean"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L45",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_geterrorcode",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_integer"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L49",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_geterrordescription",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L61",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_string",
+      "target": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_tostring"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L53",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_getresult",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_list"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L53",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_getresult",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_update"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L57",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_getparameters",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_responseparameters"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": "L61",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "telegram_apiresponseupdatetelegram_apiresponseupdatetelegram_tostring",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_apiresponseupdatetelegram_java_override"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Audio.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_audio_java",
+      "target": "telegram_audio_audio"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Audio.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_audio_audio",
+      "target": "telegram_botapiobject_botapiobject"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/BotApiObject.java",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_botapiobject_java",
+      "target": "telegram_botapiobject_botapiobject"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_chat_chat"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatInviteLink.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_chatinvitelink_chatinvitelink"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatJoinRequest.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_chatjoinrequest_chatjoinrequest"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatLocation.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_chatlocation_chatlocation"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatMemberUpdated.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_chatmemberupdated_chatmemberupdated"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatPermissions.java",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_chatpermissions_chatpermissions"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatPhoto.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_chatphoto_chatphoto"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Contact.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_contact_contact"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Document.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_document_document"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Location.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_location_location"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_message_message"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/MessageEntity.java",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_messageentity_messageentity"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/PhotoSize.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_photosize_photosize"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ResponseParameters.java",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_responseparameters_responseparameters"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_update_update"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/User.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_user_user"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Video.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_botapiobject_botapiobject",
+      "target": "telegram_video_video"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java_jsonignore"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java",
+      "target": "telegram_chat_chat"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L122",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_chat_chat",
+      "target": "telegram_chat_chat_isgroupchat"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L127",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_chat_chat",
+      "target": "telegram_chat_chat_ischannelchat"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L132",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_chat_chat",
+      "target": "telegram_chat_chat_isuserchat"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L137",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_chat_chat",
+      "target": "telegram_chat_chat_issupergroupchat"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L122",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_chat_chat_isgroupchat",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java_boolean"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L122",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "telegram_chat_chat_isgroupchat",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java_jsonignore"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "telegram_chat_chat_isgroupchat",
+      "target": "telegram_message_message_isgroupmessage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L127",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java_boolean",
+      "target": "telegram_chat_chat_ischannelchat"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L132",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java_boolean",
+      "target": "telegram_chat_chat_isuserchat"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L137",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java_boolean",
+      "target": "telegram_chat_chat_issupergroupchat"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L127",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java_jsonignore",
+      "target": "telegram_chat_chat_ischannelchat"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L132",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java_jsonignore",
+      "target": "telegram_chat_chat_isuserchat"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "L137",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chat_java_jsonignore",
+      "target": "telegram_chat_chat_issupergroupchat"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L249",
+      "weight": 1.0,
+      "source": "telegram_chat_chat_ischannelchat",
+      "target": "telegram_message_message_ischannelmessage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L244",
+      "weight": 1.0,
+      "source": "telegram_chat_chat_isuserchat",
+      "target": "telegram_message_message_isusermessage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "telegram_chat_chat_issupergroupchat",
+      "target": "telegram_message_message_issupergroupmessage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatInviteLink.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatinvitelink_java",
+      "target": "telegram_chatinvitelink_chatinvitelink"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatJoinRequest.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatjoinrequest_java",
+      "target": "telegram_chatjoinrequest_chatjoinrequest"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatLocation.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatlocation_java",
+      "target": "telegram_chatlocation_chatlocation"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatMemberUpdated.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatmemberupdated_java",
+      "target": "telegram_chatmemberupdated_chatmemberupdated"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatPermissions.java",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatpermissions_java",
+      "target": "telegram_chatpermissions_chatpermissions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatPhoto.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_chatphoto_java",
+      "target": "telegram_chatphoto_chatphoto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Contact.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_contact_java",
+      "target": "telegram_contact_contact"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Document.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_document_java",
+      "target": "telegram_document_document"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Location.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_location_java",
+      "target": "telegram_location_location"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_list"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java",
+      "target": "telegram_message_message"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L218",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_getentities"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L225",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_getcaptionentities"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L232",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_getnewchatmembers"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L237",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_isgroupmessage"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L242",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_isusermessage"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L247",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_ischannelmessage"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L252",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_issupergroupmessage"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L257",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_getchatid"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L262",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_hastext"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L267",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_hasdocument"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L272",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_hasvideo"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L277",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_hasaudio"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L282",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_isreply"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L287",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_haslocation"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L292",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_hasentities"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L297",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_hasphoto"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L302",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_hascontact"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L307",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_message_message",
+      "target": "telegram_message_message_hasviabot"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "weight": 1.0,
+      "source": "telegram_message_message",
+      "target": "MessageRestController_message"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L218",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_message_message_getentities",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_list"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L218",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "confidence_score": 1.0,
+      "source": "telegram_message_message_getentities",
+      "target": "messageentity"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L220",
+      "weight": 1.0,
+      "source": "telegram_message_message_getentities",
+      "target": "telegram_messageentity_messageentity_computetext"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L225",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_list",
+      "target": "telegram_message_message_getcaptionentities"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L232",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_list",
+      "target": "telegram_message_message_getnewchatmembers"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L225",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "confidence_score": 1.0,
+      "source": "messageentity",
+      "target": "telegram_message_message_getcaptionentities"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L227",
+      "weight": 1.0,
+      "source": "telegram_message_message_getcaptionentities",
+      "target": "telegram_messageentity_messageentity_computetext"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L232",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "confidence_score": 1.0,
+      "source": "telegram_message_message_getnewchatmembers",
+      "target": "user"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L232",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "telegram_message_message_getnewchatmembers",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L237",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_isgroupmessage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L242",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_isusermessage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L247",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_ischannelmessage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L252",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_issupergroupmessage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L257",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_getchatid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L262",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_hastext"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L267",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_hasdocument"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L272",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_hasvideo"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L277",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_hasaudio"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L282",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_isreply"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L287",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_haslocation"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L292",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_hasentities"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L297",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_hasphoto"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L302",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_hascontact"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L307",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_jsonignore",
+      "target": "telegram_message_message_hasviabot"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L257",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "telegram_message_message_getchatid",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_message_java_long"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/MessageEntity.java",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_messageentity_java",
+      "target": "telegram_messageentity_messageentity"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/MessageEntity.java",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_messageentity_messageentity",
+      "target": "telegram_messageentity_messageentity_computetext"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/MessageEntity.java",
+      "source_location": "L67",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "telegram_messageentity_messageentity_computetext",
+      "target": "src_main_java_fr_ensim_interop_introrest_model_telegram_messageentity_java_string"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/PhotoSize.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_photosize_java",
+      "target": "telegram_photosize_photosize"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ResponseParameters.java",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_responseparameters_java",
+      "target": "telegram_responseparameters_responseparameters"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_update_java",
+      "target": "telegram_update_update"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_update_update",
+      "target": "telegram_update_update_hasmessage"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L71",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_update_update",
+      "target": "telegram_update_update_haseditedmessage"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_update_update",
+      "target": "telegram_update_update_haschannelpost"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_update_update",
+      "target": "telegram_update_update_haseditedchannelpost"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_update_update",
+      "target": "telegram_update_update_hasmychatmember"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_update_update",
+      "target": "telegram_update_update_haschatmember"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L91",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "telegram_update_update",
+      "target": "telegram_update_update_haschatjoinrequest"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/User.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_user_java",
+      "target": "telegram_user_user"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Video.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main_java_fr_ensim_interop_introrest_model_telegram_video_java",
+      "target": "telegram_video_video"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java",
+      "source_location": "line 10",
+      "weight": 1.0,
+      "source": "chatbotapplication_main",
+      "target": "chatbotapplication_class"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "line 33",
+      "weight": 1.0,
+      "source": "chatbotapplication_main",
+      "target": "listenerupdatetelegram_run"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "lines 36-58",
+      "weight": 1.0,
+      "source": "listenerupdatetelegram_class",
+      "target": "telegram_polling_pattern"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "listenerupdatetelegram_class",
+      "target": "messagerestcontroller_class"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "line 40",
+      "weight": 1.0,
+      "source": "listenerupdatetelegram_run",
+      "target": "listenerupdatetelegram_pollupdates"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "line 51",
+      "weight": 1.0,
+      "source": "listenerupdatetelegram_pollupdates",
+      "target": "listenerupdatetelegram_handleupdate"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "line 48",
+      "weight": 1.0,
+      "source": "listenerupdatetelegram_pollupdates",
+      "target": "apiresponseupdatetelegram_class"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java",
+      "source_location": "lines 70-76",
+      "weight": 1.0,
+      "source": "listenerupdatetelegram_handleupdate",
+      "target": "listenerupdatetelegram_sendmessage"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseUpdateTelegram.java",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "apiresponsetelegram_class",
+      "target": "apiresponseupdatetelegram_class"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Audio.java",
+      "source_location": "line 17",
+      "weight": 1.0,
+      "source": "botapiobject_interface",
+      "target": "audio_class"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "line 20",
+      "weight": 1.0,
+      "source": "botapiobject_interface",
+      "target": "chat_class"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatInviteLink.java",
+      "source_location": "line 18",
+      "weight": 1.0,
+      "source": "botapiobject_interface",
+      "target": "chatinvitelink_class"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatJoinRequest.java",
+      "source_location": "line 18",
+      "weight": 1.0,
+      "source": "botapiobject_interface",
+      "target": "chatjoinrequest_class"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatLocation.java",
+      "source_location": "line 18",
+      "weight": 1.0,
+      "source": "botapiobject_interface",
+      "target": "chatlocation_class"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatMemberUpdated.java",
+      "source_location": "line 17",
+      "weight": 1.0,
+      "source": "botapiobject_interface",
+      "target": "chatmemberupdated_class"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatJoinRequest.java",
+      "source_location": "line 27",
+      "weight": 1.0,
+      "source": "chat_class",
+      "target": "chatjoinrequest_class"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatMemberUpdated.java",
+      "source_location": "line 26",
+      "weight": 1.0,
+      "source": "chat_class",
+      "target": "chatmemberupdated_class"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Chat.java",
+      "source_location": "line 104",
+      "weight": 1.0,
+      "source": "chat_class",
+      "target": "chatlocation_class"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatJoinRequest.java",
+      "source_location": "line 35",
+      "weight": 1.0,
+      "source": "chatinvitelink_class",
+      "target": "chatjoinrequest_class"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ChatMemberUpdated.java",
+      "source_location": "line 32",
+      "weight": 1.0,
+      "source": "chatinvitelink_class",
+      "target": "chatmemberupdated_class"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.ps1",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "recordtooluse_ps1",
+      "target": "recordtooluse_sh"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.ps1",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "recordtooluse_ps1",
+      "target": "tool_use_recording_hook"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": ".github/modernize/java-upgrade/hooks/scripts/recordToolUse.sh",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "recordtooluse_sh",
+      "target": "tool_use_recording_hook"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "user_User"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L239 isGroupChat()",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "telegram_Chat"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L220 computeText()",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "messageentity_MessageEntity"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "document_Document"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "photosize_PhotoSize"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "video_Video"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L123",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "contact_Contact"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "location_Location"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L129,L143",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "message_Message"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L40-46",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "update_Update"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "telegram_BotApiObject"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.1",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "pdf_Requirement_MessageOperation"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.2",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "pdf_Concept_ProvidedTelegramClasses"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.2 reply_to_message_id",
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "pdf_Concept_ReplyToMessage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "message_Message",
+      "target": "claudemd_TelegramObjectModel"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Update.java",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "update_Update",
+      "target": "telegram_BotApiObject"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.2",
+      "weight": 1.0,
+      "source": "update_Update",
+      "target": "pdf_Requirement_Polling"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/MessageEntity.java",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "user_User",
+      "target": "messageentity_MessageEntity"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/User.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "user_User",
+      "target": "telegram_BotApiObject"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Document.java",
+      "source_location": "L36 thumb",
+      "weight": 1.0,
+      "source": "document_Document",
+      "target": "photosize_PhotoSize"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Document.java",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "document_Document",
+      "target": "video_Video"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Video.java",
+      "source_location": "L44 thumb",
+      "weight": 1.0,
+      "source": "video_Video",
+      "target": "photosize_PhotoSize"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "weight": 1.0,
+      "source": "pdf_Requirement_MessageOperation",
+      "target": "MessageRestController_message"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "mini-projet-eval-interop.pdf",
+      "source_location": "p.1",
+      "weight": 1.0,
+      "source": "pdf_Requirement_WeatherOperation",
+      "target": "pdf_Concept_OpenWeatherMap"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "weight": 1.0,
+      "source": "pdf_Requirement_WeatherOperation",
+      "target": "MessageRestController_weather"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "weight": 1.0,
+      "source": "pdf_Requirement_JokeOperation",
+      "target": "MessageRestController_joke"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.55,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "pdf_Concept_OAS",
+      "target": "readme_Project"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "weight": 1.0,
+      "source": "pdf_Concept_OpenWeatherMap",
+      "target": "MessageRestController_weather"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".remember/tmp/last-save.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "remember_tmp_last_save_json",
+      "target": "tmp_last_save_session"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".remember/tmp/last-save.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "remember_tmp_last_save_json",
+      "target": "tmp_last_save_line"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L41",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "controller_messagerestcontroller_messagerestcontroller_weather",
+      "target": "string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L41",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "controller_messagerestcontroller_messagerestcontroller_weather",
+      "target": "getmapping"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L64",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "string",
+      "target": "controller_messagerestcontroller_messagerestcontroller_joke"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L73",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "string",
+      "target": "controller_messagerestcontroller_messagerestcontroller_message"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L64",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "getmapping",
+      "target": "controller_messagerestcontroller_messagerestcontroller_joke"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L73",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "controller_messagerestcontroller_messagerestcontroller_message",
+      "target": "map"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L73",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "confidence_score": 1.0,
+      "source": "controller_messagerestcontroller_messagerestcontroller_message",
+      "target": "object"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": "L73",
+      "weight": 1.0,
+      "context": "attribute",
+      "confidence_score": 1.0,
+      "source": "controller_messagerestcontroller_messagerestcontroller_message",
+      "target": "postmapping"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "MessageRestController_joke",
+      "target": "MessageRestController_jokeApi"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "botapiobject_model_family",
+      "label": "Telegram BotApiObject Model Family",
+      "nodes": [
+        "botapiobject_interface",
+        "audio_class",
+        "chat_class",
+        "chatinvitelink_class",
+        "chatjoinrequest_class",
+        "chatlocation_class",
+        "chatmemberupdated_class"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/BotApiObject.java"
+    },
+    {
+      "id": "telegram_polling_flow",
+      "label": "Telegram Update Polling Flow",
+      "nodes": [
+        "listenerupdatetelegram_run",
+        "listenerupdatetelegram_pollupdates",
+        "listenerupdatetelegram_handleupdate",
+        "listenerupdatetelegram_sendmessage"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java"
+    },
+    {
+      "id": "message_media_payloads",
+      "label": "Message media payload composition",
+      "nodes": [
+        "message_Message",
+        "document_Document",
+        "video_Video",
+        "photosize_PhotoSize",
+        "contact_Contact",
+        "location_Location"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/Message.java"
+    },
+    {
+      "id": "telegram_update_polling_flow",
+      "label": "Telegram getUpdates polling data flow",
+      "nodes": [
+        "pdf_Requirement_Polling",
+        "update_Update",
+        "message_Message"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "mini-projet-eval-interop.pdf"
+    }
+  ],
+  "built_at_commit": "c15e2c7a090899a9249a7d71f7a48d687cae5688"
+}

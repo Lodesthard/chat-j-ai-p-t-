@@ -1,0 +1,1 @@
+{"nodes": [{"id": "apiresponsetelegram_class", "label": "ApiResponseTelegram", "file_type": "code", "source_file": "src/main/java/fr/ensim/interop/introrest/model/telegram/ApiResponseTelegram.java", "source_location": "line 22", "source_url": null, "captured_at": null, "author": "Ruben Bermudez", "contributor": null}], "edges": [], "hyperedges": []}

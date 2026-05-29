@@ -12,6 +12,8 @@ fr\ensim\interop\introrest\model\telegram\Update.class
 fr\ensim\interop\introrest\model\telegram\Contact.class
 fr\ensim\interop\introrest\model\telegram\MessageEntity.class
 fr\ensim\interop\introrest\model\telegram\MessageEntity$MessageEntityBuilder.class
+fr\ensim\interop\introrest\service\JokeService.class
+fr\ensim\interop\introrest\model\Joke.class
 fr\ensim\interop\introrest\client\ClientRestTest.class
 fr\ensim\interop\introrest\model\telegram\ChatJoinRequest.class
 fr\ensim\interop\introrest\model\telegram\PhotoSize.class
