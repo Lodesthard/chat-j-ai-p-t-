@@ -1,12 +1,24 @@
 package fr.ensim.interop.introrest.controller;
 
+import fr.ensim.interop.introrest.exception.ApiException;
 import fr.ensim.interop.introrest.model.Joke;
 import fr.ensim.interop.introrest.model.telegram.ApiResponseUpdateTelegram;
+import fr.ensim.interop.introrest.model.telegram.Message;
 import fr.ensim.interop.introrest.model.telegram.Update;
+import fr.ensim.interop.introrest.oas.model.ApiJoke;
+import fr.ensim.interop.introrest.oas.model.ChatEvent;
+import fr.ensim.interop.introrest.oas.model.JokeRequest;
+import fr.ensim.interop.introrest.oas.model.SendMessageRequest;
+import fr.ensim.interop.introrest.oas.model.SentMessageResponse;
+import fr.ensim.interop.introrest.oas.model.TextResponse;
+import fr.ensim.interop.introrest.service.ChatbotService;
 import fr.ensim.interop.introrest.service.JokeService;
+import fr.ensim.interop.introrest.service.TelegramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,24 +27,27 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+@Validated
 @RestController
 public class MessageRestController {
 
     @Autowired
+    private ChatbotService chatbotService;
+
+    @Autowired
     private JokeService jokeService;
+
+    @Autowired
+    private TelegramService telegramService;
 
     @Value("${telegram.api.url}")
     private String telegramApiUrl;
@@ -40,180 +55,126 @@ public class MessageRestController {
     @Value("${telegram.bot.id}")
     private String botToken;
 
-    @Value("${open.weather.api.url}")
-    private String weatherApiUrl;
-
-    @Value("${open.weather.forecast.url}")
-    private String forecastApiUrl;
-
-    @Value("${open.weather.api.token}")
-    private String weatherApiToken;
+    @Value("${carambar.api.url}")
+    private String carambarApiUrl;
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-    // --- Météo courante ---
-
     @GetMapping("/weather")
-    public String weather(@RequestParam(defaultValue = "Paris") String city) {
-        try {
-            String url = weatherApiUrl + "?q=" + city + "&appid=" + weatherApiToken + "&units=metric&lang=fr";
-            @SuppressWarnings("unchecked")
-            Map<String, Object> response = restTemplate.getForObject(url, Map.class);
-            return formatCurrentWeather(city, response);
-        } catch (HttpClientErrorException e) {
-            return e.getStatusCode().value() == 404
-                    ? "Ville introuvable : " + city
-                    : "Erreur météo (" + e.getStatusCode().value() + ")";
-        } catch (Exception e) {
-            return "Météo indisponible : " + e.getMessage();
-        }
+    public TextResponse weather(@RequestParam(defaultValue = "Paris") String city) {
+        return text(chatbotService.getWeatherText(city));
     }
-
-    // --- Prévisions 5 jours ---
 
     @GetMapping("/forecast")
-    public String forecast(@RequestParam(defaultValue = "Paris") String city) {
+    public TextResponse forecast(@RequestParam(defaultValue = "Paris") String city) {
+        return text(chatbotService.getForecastText(city));
+    }
+
+    @GetMapping("/joke")
+    public TextResponse joke(@RequestParam(required = false) String quality) {
+        if ("best".equalsIgnoreCase(quality)) {
+            return text(chatbotService.getBestJokeText());
+        }
+        if ("worst".equalsIgnoreCase(quality)) {
+            return text(chatbotService.getWorstJokeText());
+        }
+        return text(chatbotService.getRandomJokeText());
+    }
+
+    @GetMapping("/jokes/carambar")
+    public TextResponse jokeCarambar() {
         try {
-            String url = forecastApiUrl + "?q=" + city + "&appid=" + weatherApiToken + "&units=metric&lang=fr&cnt=40";
             @SuppressWarnings("unchecked")
-            Map<String, Object> response = restTemplate.getForObject(url, Map.class);
-            return formatForecast(city, response);
-        } catch (HttpClientErrorException e) {
-            return e.getStatusCode().value() == 404
-                    ? "Ville introuvable : " + city
-                    : "Erreur prévisions (" + e.getStatusCode().value() + ")";
+            Map<String, Object> response = restTemplate.getForObject(carambarApiUrl + "/random", Map.class);
+            if (response == null || response.get("content") == null) {
+                return text("Pas de blague Carambar disponible !");
+            }
+            return text(String.valueOf(response.get("content")));
         } catch (Exception e) {
-            return "Prévisions indisponibles : " + e.getMessage();
+            return text("API Carambar injoignable pour le moment.");
         }
     }
 
-    // --- Blague aléatoire ---
-
-    @GetMapping("/joke")
-    public String joke() {
-        return jokeService.getRandom()
-                .map(j -> j.getQuestion() + "\n" + j.getAnswer())
-                .orElse("Pas de blague disponible !");
-    }
-
-    // --- CRUD Blagues ---
-
     @GetMapping("/jokes")
-    public Collection<Joke> jokes(@RequestParam(required = false) String q) {
-        if (q != null && !q.isEmpty()) return jokeService.findByQuestion(q);
-        return jokeService.getAll();
+    public List<ApiJoke> jokes(@RequestParam(required = false) String q) {
+        Collection<Joke> jokes = q != null && !q.isEmpty() ? jokeService.findByTitle(q) : jokeService.getAll();
+        return jokes.stream().map(this::toApiJoke).collect(Collectors.toList());
     }
 
     @GetMapping("/jokes/{id}")
-    public ResponseEntity<Joke> jokeById(@PathVariable Long id) {
+    public ApiJoke jokeById(@PathVariable Long id) {
         return jokeService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .map(this::toApiJoke)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Blague #" + id + " introuvable"));
     }
 
     @PostMapping("/jokes")
-    public Joke addJoke(@RequestBody Joke joke) {
-        return jokeService.add(joke.getQuestion(), joke.getAnswer());
+    public ResponseEntity<ApiJoke> addJoke(@Valid @RequestBody JokeRequest request) {
+        Joke joke = jokeService.add(request.getTitle(), request.getText(), request.getRating());
+        return ResponseEntity.status(HttpStatus.CREATED).body(toApiJoke(joke));
     }
 
     @PutMapping("/jokes/{id}")
-    public ResponseEntity<Joke> updateJoke(@PathVariable Long id, @RequestBody Joke joke) {
-        return jokeService.update(id, joke.getQuestion(), joke.getAnswer())
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ApiJoke updateJoke(@PathVariable Long id, @Valid @RequestBody JokeRequest request) {
+        return jokeService.update(id, request.getTitle(), request.getText(), request.getRating())
+                .map(this::toApiJoke)
+                .orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "Blague #" + id + " introuvable"));
     }
 
     @DeleteMapping("/jokes/{id}")
     public ResponseEntity<Void> deleteJoke(@PathVariable Long id) {
-        return jokeService.delete(id)
-                ? ResponseEntity.noContent().<Void>build()
-                : ResponseEntity.notFound().build();
+        if (!jokeService.delete(id)) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "Blague #" + id + " introuvable");
+        }
+        return ResponseEntity.noContent().build();
     }
 
-    // --- Telegram ---
-
     @PostMapping("/message")
-    public ResponseEntity<String> message(@RequestBody Map<String, Object> payload) {
-        try {
-            String url = telegramApiUrl + botToken + "/sendMessage";
-            Map<String, Object> body = new HashMap<>();
-            body.put("chat_id", payload.get("chat_id"));
-            body.put("text", payload.get("text"));
-            String result = restTemplate.postForObject(url, body, String.class);
-            return ResponseEntity.ok(result);
-        } catch (HttpClientErrorException e) {
-            return ResponseEntity.status(e.getStatusCode())
-                    .body("Erreur Telegram : " + e.getResponseBodyAsString());
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("Erreur interne : " + e.getMessage());
+    public SentMessageResponse message(@Valid @RequestBody SendMessageRequest request) {
+        Message sent = telegramService.sendMessage(
+                request.getChatId(),
+                request.getText(),
+                request.getReplyToMessageId());
+        SentMessageResponse response = new SentMessageResponse().ok(true).text(request.getText());
+        if (sent != null) {
+            response.messageId(sent.getMessageId()).chatId(sent.getChatId());
+        } else {
+            response.chatId(request.getChatId());
         }
+        return response;
     }
 
     @GetMapping("/chats")
-    public List<Map<String, Object>> chats() {
+    public List<ChatEvent> chats() {
         String url = telegramApiUrl + botToken + "/getUpdates?limit=20";
         ApiResponseUpdateTelegram response = restTemplate.getForObject(url, ApiResponseUpdateTelegram.class);
-        if (response == null || response.getResult() == null) return new ArrayList<>();
-        List<Map<String, Object>> result = new ArrayList<>();
+        if (response == null || response.getResult() == null) {
+            return new ArrayList<>();
+        }
+
+        List<ChatEvent> result = new ArrayList<>();
         for (Update update : response.getResult()) {
             if (update.hasMessage() && update.getMessage().hasText()) {
-                Map<String, Object> info = new HashMap<>();
-                info.put("chat_id", update.getMessage().getChatId());
-                info.put("text", update.getMessage().getText());
-                result.add(info);
+                Message message = update.getMessage();
+                result.add(new ChatEvent()
+                        .updateId(update.getUpdateId())
+                        .chatId(message.getChatId())
+                        .messageId(message.getMessageId())
+                        .text(message.getText()));
             }
         }
         return result;
     }
 
-    // --- Formatters partagés ---
-
-    @SuppressWarnings("unchecked")
-    private String formatCurrentWeather(String city, Map<String, Object> response) {
-        if (response == null) return "Météo indisponible pour " + city;
-        Map<String, Object> main = (Map<String, Object>) response.get("main");
-        List<?> weatherList = (List<?>) response.get("weather");
-        String description = "";
-        if (weatherList != null && !weatherList.isEmpty()) {
-            Map<String, Object> w = (Map<String, Object>) weatherList.get(0);
-            description = String.valueOf(w.get("description"));
-        }
-        Object temp = main != null ? main.get("temp") : "?";
-        return "Météo à " + city + " : " + description + ", " + temp + "°C";
+    private TextResponse text(String value) {
+        return new TextResponse().text(value);
     }
 
-    @SuppressWarnings("unchecked")
-    private String formatForecast(String city, Map<String, Object> response) {
-        if (response == null) return "Prévisions indisponibles pour " + city;
-        List<Map<String, Object>> list = (List<Map<String, Object>>) response.get("list");
-        if (list == null || list.isEmpty()) return "Pas de prévisions pour " + city;
-
-        Map<String, Map<String, Object>> byDay = new LinkedHashMap<>();
-        for (Map<String, Object> entry : list) {
-            String dtTxt = (String) entry.get("dt_txt");
-            if (dtTxt == null || dtTxt.length() < 13) continue;
-            String day = dtTxt.substring(0, 10);
-            String hour = dtTxt.substring(11, 13);
-            if (!byDay.containsKey(day) || "12".equals(hour)) byDay.put(day, entry);
-        }
-
-        DateTimeFormatter inFmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        DateTimeFormatter outFmt = DateTimeFormatter.ofPattern("EEE dd/MM", Locale.FRENCH);
-        StringBuilder sb = new StringBuilder("Prévisions pour " + city + " :\n");
-        int count = 0;
-        for (Map.Entry<String, Map<String, Object>> e : byDay.entrySet()) {
-            if (count++ >= 5) break;
-            Map<String, Object> entry = e.getValue();
-            Map<String, Object> main = (Map<String, Object>) entry.get("main");
-            List<Map<String, Object>> wList = (List<Map<String, Object>>) entry.get("weather");
-            String desc = wList != null && !wList.isEmpty() ? String.valueOf(wList.get(0).get("description")) : "";
-            Object tMin = main != null ? main.get("temp_min") : "?";
-            Object tMax = main != null ? main.get("temp_max") : "?";
-            LocalDate date = LocalDate.parse(e.getKey(), inFmt);
-            sb.append(date.format(outFmt)).append(" : ").append(desc)
-              .append(", ").append(tMin).append("°C — ").append(tMax).append("°C\n");
-        }
-        return sb.toString().trim();
+    private ApiJoke toApiJoke(Joke joke) {
+        return new ApiJoke()
+                .id(joke.getId())
+                .title(joke.getTitle())
+                .text(joke.getText())
+                .rating(joke.getRating());
     }
-
 }

@@ -1,404 +1,1042 @@
 ================================================================================
-  CHATBOT TELEGRAM - DOCUMENTATION DU PROJET
-  ENSIM - Interopérabilité des Systèmes d'Information
+CHATBOT TELEGRAM + API REST - DOCUMENTATION DU PROJET
+ENSIM - Interoperabilite des Systemes d'Information
 ================================================================================
 
+0. MODE D'EMPLOI RAPIDE POUR LANCER LE PROJET
+================================================================================
 
-════════════════════════════════════════════════════════════════════════════════
-1. PRÉSENTATION GÉNÉRALE
-════════════════════════════════════════════════════════════════════════════════
+1. Verifier les prerequis :
 
-Application Spring Boot (Java 17) qui expose deux chemins d'accès indépendants :
+   - Java installe ;
+   - Maven installe ;
+   - un token de bot Telegram ;
+   - une cle OpenWeatherMap.
 
-  1. API REST  — endpoints accessibles via Postman, curl ou tout client HTTP.
-  2. Chatbot Telegram — boucle de polling automatique qui réagit aux messages
-                        envoyés directement au bot Telegram.
+2. Configurer le fichier :
 
-Les deux chemins partagent le même store de blagues (JokeService) et appellent
-les mêmes APIs externes (OpenWeatherMap).
+   src/main/resources/application.properties
 
-APIs externes utilisées :
-  - Telegram Bot API    https://api.telegram.org/bot<TOKEN>/
-  - OpenWeatherMap      https://api.openweathermap.org/data/2.5/
+   Exemple de configuration :
 
-Port par défaut : 9090
-URL de base     : http://localhost:9090
+   server.port=9090
+   api.access.token=interop-secret
+   telegram.api.url=https://api.telegram.org/bot
+   telegram.bot.id=<TOKEN_TELEGRAM_BOT>
+   open.weather.api.url=https://api.openweathermap.org/data/2.5/weather
+   open.weather.forecast.url=https://api.openweathermap.org/data/2.5/forecast
+   open.weather.api.token=<CLE_OPENWEATHERMAP>
+
+3. Ouvrir un terminal a la racine du projet :
+
+   c:\Users\bidbi\Documents\Interoperabilite\chat-j-ai-p-t-
+
+4. Compiler le projet :
+
+   mvn clean compile
+
+   Cette commande genere aussi les classes Java depuis l'OAS :
+
+   src/main/resources/openapi/chatbot-api.yaml
+
+5. Lancer l'application :
+
+   mvn spring-boot:run
+
+6. Si le port 9090 est deja utilise, lancer sur un autre port :
+
+   mvn spring-boot:run '-Dspring-boot.run.arguments=--server.port=9091'
+
+7. Tester rapidement l'API REST :
+
+   PowerShell :
+
+   $headers = @{ 'X-API-Token' = 'interop-secret' }
+   Invoke-WebRequest -UseBasicParsing -Headers $headers -Uri http://localhost:9090/joke
+
+   Si vous avez lance sur 9091, remplacer 9090 par 9091.
+
+   Dans un navigateur, utiliser le token directement dans l'URL :
+
+   http://localhost:9090/joke?access_token=interop-secret
+
+8. Tester le chatbot Telegram :
+
+   - demarrer l'application ;
+   - ouvrir Telegram ;
+   - envoyer un message au bot, par exemple :
+
+     meteo Paris
+
+   Le listener Telegram interroge getUpdates toutes les 5 secondes. La reponse
+   peut donc prendre quelques secondes.
+
+9. Envoyer un message Telegram depuis l'API :
+
+   D'abord, envoyer un message au bot depuis Telegram, puis recuperer le chat_id :
+
+   Invoke-WebRequest -UseBasicParsing -Headers $headers -Uri http://localhost:9090/chats
+
+   Ensuite envoyer un message :
+
+   $body = @{
+     chat_id = 123456789
+     text = "Message envoye depuis l'API REST"
+   } | ConvertTo-Json
+
+   Invoke-WebRequest `
+     -UseBasicParsing `
+     -Headers $headers `
+     -Method POST `
+     -ContentType "application/json" `
+     -Body $body `
+     -Uri http://localhost:9090/message
+
+10. Arreter l'application :
+
+   Dans le terminal ou l'application tourne :
+
+   Ctrl + C
 
 
-════════════════════════════════════════════════════════════════════════════════
-2. PRÉREQUIS ET LANCEMENT
-════════════════════════════════════════════════════════════════════════════════
+1. PRESENTATION
+================================================================================
 
-Prérequis :
-  - Java 17 (Eclipse Adoptium recommandé)
-  - Maven 3.9+ (installé dans Documents/apache-maven-3.9.15-bin/)
-  - Un bot Telegram créé via @BotFather (token dans application.properties)
-  - Une clé OpenWeatherMap (compte gratuit sur openweathermap.org)
+Ce projet est une application Spring Boot qui expose les fonctionnalites d'un
+chatbot Telegram de deux manieres :
 
-Commandes Maven :
+- par Telegram, avec une boucle de polling basee sur getUpdates ;
+- par une API REST securisee par token, decrite par un contrat OpenAPI (OAS).
 
-  Compiler :
-    mvn clean compile
+Les deux entrees utilisent la meme logique metier :
 
-  Lancer l'application :
-    mvn spring-boot:run
+- meteo actuelle d'une ville ;
+- previsions meteo ;
+- blague aleatoire, mieux notee ou moins bien notee ;
+- consultation, ajout, modification et suppression de blagues ;
+- envoi de messages Telegram depuis l'API REST.
 
-  Construire le JAR :
-    mvn clean install
+Une blague possede, comme demande dans le sujet : un id, un titre, un texte et
+une note sur 10.
 
-  Lancer le JAR :
-    java -jar target/chatbot-api-ensim-0.0.1-SNAPSHOT.jar
+Technologies principales :
 
-Configuration (src/main/resources/application.properties) :
+- Java 8 configure dans Maven ;
+- Spring Boot 2.4.5 ;
+- Maven ;
+- Telegram Bot API ;
+- OpenWeatherMap API ;
+- OpenAPI Generator Maven Plugin ;
+- Lombok pour les modeles Telegram existants.
+
+Port par defaut :
+
+  http://localhost:9090
+
+
+2. STRUCTURE DU PROJET
+================================================================================
+
+Fichiers importants :
+
+  pom.xml
+    Configuration Maven, dependances Spring Boot, Lombok, Swagger annotations,
+    validation et plugin de generation OpenAPI.
+
+  src/main/resources/application.properties
+    Configuration applicative : port, token API, token Telegram, URLs externes.
+
+  src/main/resources/openapi/chatbot-api.yaml
+    Contrat OpenAPI 3.0 de l'API REST.
+
+  target/generated-sources/openapi/...
+    Classes Java generees automatiquement depuis l'OAS pendant la compilation.
+    Ces classes ne doivent pas etre modifiees a la main.
+
+  src/main/java/fr/ensim/interop/introrest/ChatBotApplication.java
+    Point d'entree Spring Boot.
+
+  src/main/java/fr/ensim/interop/introrest/ListenerUpdateTelegram.java
+    Listener Telegram. Lance le polling getUpdates au demarrage.
+
+  src/main/java/fr/ensim/interop/introrest/controller/MessageRestController.java
+    Controleur REST de l'API.
+
+  src/main/java/fr/ensim/interop/introrest/service/ChatbotService.java
+    Logique metier commune entre Telegram et l'API REST.
+
+  src/main/java/fr/ensim/interop/introrest/service/TelegramService.java
+    Service responsable des appels a Telegram sendMessage.
+
+  src/main/java/fr/ensim/interop/introrest/service/JokeService.java
+    Store en memoire des blagues.
+
+  src/main/java/fr/ensim/interop/introrest/security/ApiTokenFilter.java
+    Filtre de securite simple par token.
+
+  src/main/java/fr/ensim/interop/introrest/exception/GlobalExceptionHandler.java
+    Gestion centralisee des erreurs REST.
+
+  src/main/java/fr/ensim/interop/introrest/model/telegram/
+    Modeles Java mappant les objets de l'API Telegram.
+
+
+3. CONFIGURATION
+================================================================================
+
+Fichier :
+
+  src/main/resources/application.properties
+
+Exemple :
+
   server.port=9090
+
+  api.access.token=interop-secret
+
   telegram.api.url=https://api.telegram.org/bot
-  telegram.bot.id=<VOTRE_TOKEN_BOT>
+  telegram.bot.id=<TOKEN_TELEGRAM_BOT>
+
   open.weather.api.url=https://api.openweathermap.org/data/2.5/weather
   open.weather.forecast.url=https://api.openweathermap.org/data/2.5/forecast
-  open.weather.api.token=<VOTRE_CLE_OPENWEATHERMAP>
+  open.weather.api.token=<CLE_OPENWEATHERMAP>
 
-Note Lombok :
-  L'IDE (VS Code) affiche de fausses erreurs sur les getters/setters générés
-  par Lombok (getMessage(), getUpdateId(), etc.). Ces erreurs n'existent pas
-  au sens de la compilation. La commande "mvn compile" est l'autorité.
+  carambar.api.url=https://carambar-jokes-79ge.onrender.com/api
 
+Important :
 
-════════════════════════════════════════════════════════════════════════════════
-3. STRUCTURE DU PROJET
-════════════════════════════════════════════════════════════════════════════════
+- telegram.bot.id doit contenir le token fourni par BotFather.
+- open.weather.api.token doit contenir une cle OpenWeatherMap valide.
+- api.access.token est le token attendu par l'API REST.
 
-chat-j-ai-p-t-/
-├── DOCUMENTATION.txt                   ← ce fichier
-├── pom.xml                             ← dépendances Maven (Spring Boot 2.4.5)
-└── src/
-    └── main/
-        ├── java/fr/ensim/interop/introrest/
-        │   │
-        │   ├── ChatBotApplication.java
-        │   │     Point d'entrée Spring Boot (@SpringBootApplication).
-        │   │
-        │   ├── ListenerUpdateTelegram.java
-        │   │     Composant Spring (@Component + CommandLineRunner).
-        │   │     Démarre au lancement : boucle Timer qui appelle getUpdates
-        │   │     toutes les 10 secondes, analyse les messages et répond.
-        │   │     Gère toutes les commandes du chatbot Telegram.
-        │   │
-        │   ├── controller/
-        │   │   └── MessageRestController.java
-        │   │         Contrôleur REST (@RestController).
-        │   │         Expose tous les endpoints HTTP de l'application.
-        │   │
-        │   ├── service/
-        │   │   └── JokeService.java
-        │   │         Service Spring (@Service).
-        │   │         Store en mémoire (ConcurrentHashMap) pour les blagues
-        │   │         locales. Partagé entre le contrôleur et le listener.
-        │   │         Pré-chargé avec 3 blagues au démarrage.
-        │   │
-        │   ├── model/
-        │   │   ├── Joke.java
-        │   │   │     POJO représentant une blague : id, question, answer.
-        │   │   │
-        │   │   └── telegram/
-        │   │       ├── BotApiObject.java          interface marqueur
-        │   │       ├── Update.java                événement Telegram entrant
-        │   │       ├── Message.java               message reçu
-        │   │       ├── Chat.java                  conversation (privée/groupe)
-        │   │       ├── User.java                  utilisateur Telegram
-        │   │       ├── ApiResponseUpdateTelegram  réponse de getUpdates
-        │   │       ├── ApiResponseTelegram.java   réponse générique
-        │   │       └── ... (Audio, Document, Photo, Video, Contact, etc.)
-        │   │             Modèles Lombok (@Data, @JsonProperty) qui mappent
-        │   │             fidèlement les objets de l'API Telegram.
-        │   │
-        │   └── client/
-        │       └── ClientRestTest.java
-        │             Classe main() de test manuel (scratch pad).
-        │             Non déployée, utilisée pour tester des appels API.
-        │
-        └── resources/
-            └── application.properties
-                  Configuration Spring Boot : port, tokens, URLs des APIs.
+Le token REST peut etre transmis de trois manieres :
+
+  X-API-Token: interop-secret
+
+ou :
+
+  Authorization: Bearer interop-secret
+
+ou, pour tester rapidement dans un navigateur :
+
+  http://localhost:9090/joke?access_token=interop-secret
+
+Les endpoints /actuator et /error ne sont pas bloques par ce filtre.
 
 
-════════════════════════════════════════════════════════════════════════════════
-4. API REST — RÉFÉRENCE DES ENDPOINTS
-════════════════════════════════════════════════════════════════════════════════
+4. COMPILATION ET LANCEMENT
+================================================================================
 
-Base URL : http://localhost:9090
+Compiler le projet :
 
-────────────────────────────────────────────────────────────────────────────────
-MÉTÉO
-────────────────────────────────────────────────────────────────────────────────
+  mvn clean compile
 
-GET /weather
-  Description : Météo actuelle d'une ville.
-  Paramètres  : ?city=Paris   (optionnel, défaut : Paris)
-  Réponse     : texte plain
-  Exemple     : GET http://localhost:9090/weather?city=Lyon
-  Retour ex.  : "Météo à Lyon : ciel dégagé, 18.5°C"
-  Erreur      : "Ville introuvable : xyz" (404 OpenWeatherMap)
+Pendant cette commande, le plugin openapi-generator-maven-plugin lit :
 
-GET /forecast
-  Description : Prévisions météo sur 5 jours (entrée toutes les 3h, groupées
-                par jour à midi).
-  Paramètres  : ?city=Paris   (optionnel, défaut : Paris)
-  Réponse     : texte plain multi-lignes
-  Exemple     : GET http://localhost:9090/forecast?city=Bordeaux
-  Retour ex.  :
-    Prévisions pour Bordeaux :
-    jeu. 29/05 : nuageux, 14.2°C — 19.8°C
-    ven. 30/05 : pluie légère, 12.1°C — 17.3°C
-    ...
+  src/main/resources/openapi/chatbot-api.yaml
 
-────────────────────────────────────────────────────────────────────────────────
-BLAGUES (store local)
-────────────────────────────────────────────────────────────────────────────────
+et genere les DTO Java dans :
+
+  target/generated-sources/openapi
+
+Lancer l'application :
+
+  mvn spring-boot:run
+
+Lancer sur un autre port si 9090 est deja utilise :
+
+  mvn spring-boot:run '-Dspring-boot.run.arguments=--server.port=9091'
+
+Construire le JAR :
+
+  mvn clean package
+
+Lancer le JAR :
+
+  java -jar target/chatbot-api-ensim-1.0.0-SNAPSHOT.jar
+
+
+5. CONTRAT OPENAPI ET GENERATION DES CLASSES
+================================================================================
+
+Le contrat OAS est dans :
+
+  src/main/resources/openapi/chatbot-api.yaml
+
+Il decrit :
+
+- les endpoints REST ;
+- les parametres ;
+- les corps JSON ;
+- les schemas de reponse ;
+- le schema d'erreur ;
+- la securite par token X-API-Token.
+
+Le plugin Maven configure dans pom.xml genere uniquement les modeles :
+
+  fr.ensim.interop.introrest.oas.model.*
+
+Exemples de classes generees :
+
+- ApiJoke
+- JokeRequest
+- SendMessageRequest
+- SentMessageResponse
+- TextResponse
+- ChatEvent
+- ErrorResponse
+
+Le controleur REST utilise ces classes au lieu de payloads Map non types.
+
+
+6. API REST
+================================================================================
+
+Base URL :
+
+  http://localhost:9090
+
+Tous les exemples ci-dessous doivent contenir l'en-tete :
+
+  X-API-Token: interop-secret
+
+Sans token ou avec un token invalide :
+
+  HTTP 401
+  {
+    "status": 401,
+    "error": "Unauthorized",
+    "message": "Token d'acces manquant ou invalide"
+  }
+
+
+6.1 Meteo actuelle
+--------------------------------------------------------------------------------
+
+GET /weather?city=Paris
+
+Parametre :
+
+  city : optionnel, valeur par defaut = Paris
+
+Reponse :
+
+  {
+    "text": "Meteo a Paris : ciel degage, 21.5 degC"
+  }
+
+Exemple PowerShell :
+
+  Invoke-WebRequest `
+    -Headers @{ 'X-API-Token'='interop-secret' } `
+    -Uri "http://localhost:9090/weather?city=Lyon"
+
+
+6.2 Previsions
+--------------------------------------------------------------------------------
+
+GET /forecast?city=Bordeaux
+
+Parametre :
+
+  city : optionnel, valeur par defaut = Paris
+
+Reponse :
+
+  {
+    "text": "Previsions pour Bordeaux :\nven. 29/05 : pluie, 12 degC - 18 degC"
+  }
+
+
+6.3 Blague aleatoire
+--------------------------------------------------------------------------------
 
 GET /joke
-  Description : Blague aléatoire du store local.
-  Réponse     : texte plain  "Question ?\nRéponse"
+
+Parametre optionnel :
+
+  quality=best  : renvoie la blague la mieux notee
+  quality=worst : renvoie la blague la moins bien notee
+  (absent)      : renvoie une blague au hasard
+
+Reponse :
+
+  {
+    "text": "#1 - Les plongeurs (7/10)\nPourquoi les plongeurs ..."
+  }
+
+
+6.4 Liste ou recherche de blagues
+--------------------------------------------------------------------------------
 
 GET /jokes
-  Description : Liste toutes les blagues du store.
-  Paramètres  : ?q=mot   (optionnel) filtre par mot-clé dans la question
-  Réponse     : JSON  [{"id":1,"question":"...","answer":"..."},...]
+
+Reponse :
+
+  [
+    {
+      "id": 1,
+      "title": "Les plongeurs",
+      "text": "Pourquoi les plongeurs ... ?",
+      "rating": 7
+    }
+  ]
+
+Recherche par titre :
+
+  GET /jokes?q=plongeurs
+
+
+6.5 Detail d'une blague
+--------------------------------------------------------------------------------
 
 GET /jokes/{id}
-  Description : Blague par identifiant numérique.
-  Réponse     : JSON  {"id":1,"question":"...","answer":"..."}
-  Erreur      : HTTP 404 si l'id n'existe pas
+
+Exemple :
+
+  GET /jokes/1
+
+Reponse :
+
+  {
+    "id": 1,
+    "title": "Les plongeurs",
+    "text": "...",
+    "rating": 7
+  }
+
+Si l'id n'existe pas :
+
+  HTTP 404
+  {
+    "status": 404,
+    "error": "Not Found",
+    "message": "Blague #99 introuvable"
+  }
+
+
+6.6 Ajouter une blague
+--------------------------------------------------------------------------------
 
 POST /jokes
-  Description : Ajouter une nouvelle blague.
-  Corps       : JSON  {"question":"Pourquoi ?","answer":"Parce que !"}
-  Réponse     : JSON  blague créée avec son id généré
-  Exemple     :
-    POST http://localhost:9090/jokes
-    Content-Type: application/json
-    {"question":"C'est quoi un canif ?","answer":"Un petit fien."}
+
+Corps JSON :
+
+  {
+    "title": "Le cafe des devs",
+    "text": "Pourquoi les devs aiment-ils le cafe ? Parce que Java.",
+    "rating": 6
+  }
+
+Reponse :
+
+  HTTP 201
+  {
+    "id": 6,
+    "title": "Le cafe des devs",
+    "text": "Pourquoi les devs aiment-ils le cafe ? Parce que Java.",
+    "rating": 6
+  }
+
+Les champs title et text sont obligatoires et non vides. Le champ rating est
+optionnel (note sur 10, valeur par defaut 5, bornee entre 0 et 10).
+
+
+6.7 Modifier une blague
+--------------------------------------------------------------------------------
 
 PUT /jokes/{id}
-  Description : Modifier une blague existante.
-  Corps       : JSON  {"question":"...","answer":"..."}
-  Réponse     : JSON  blague modifiée
-  Erreur      : HTTP 404 si l'id n'existe pas
+
+Corps JSON :
+
+  {
+    "title": "Nouveau titre",
+    "text": "Nouveau texte de la blague.",
+    "rating": 9
+  }
+
+Reponse :
+
+  HTTP 200 avec la blague modifiee.
+
+Si l'id n'existe pas :
+
+  HTTP 404 avec un ErrorResponse.
+
+
+6.8 Supprimer une blague
+--------------------------------------------------------------------------------
 
 DELETE /jokes/{id}
-  Description : Supprimer une blague.
-  Réponse     : HTTP 204 No Content
-  Erreur      : HTTP 404 si l'id n'existe pas
 
-────────────────────────────────────────────────────────────────────────────────
-TELEGRAM
-────────────────────────────────────────────────────────────────────────────────
+Reponse :
+
+  HTTP 204 No Content
+
+Si l'id n'existe pas :
+
+  HTTP 404 avec un ErrorResponse.
+
+
+6.9 Envoyer un message Telegram
+--------------------------------------------------------------------------------
 
 POST /message
-  Description : Envoie un message dans une conversation Telegram via le bot.
-  Corps       : JSON  {"chat_id":123456789,"text":"Bonjour !"}
-  Réponse     : HTTP 200 + réponse brute de l'API Telegram (JSON)
-  Erreur      : HTTP 400 + message Telegram si chat_id invalide
-                HTTP 500 + message si erreur réseau
-  Note        : Le chat_id s'obtient avec GET /chats (voir ci-dessous).
+
+Corps JSON :
+
+  {
+    "chat_id": 123456789,
+    "text": "Bonjour depuis l'API REST"
+  }
+
+Reponse :
+
+  {
+    "ok": true,
+    "message_id": 42,
+    "chat_id": 123456789,
+    "text": "Bonjour depuis l'API REST"
+  }
+
+Pour repondre a un message precis en le citant dans Telegram, ajouter
+reply_to_message_id :
+
+  {
+    "chat_id": 123456789,
+    "text": "Reponse ciblee",
+    "reply_to_message_id": 41
+  }
+
+Si le chat_id est invalide, Telegram renvoie une erreur. L'application la
+transforme en reponse REST explicite, generalement :
+
+  HTTP 400
+  {
+    "status": 400,
+    "error": "Bad Request",
+    "message": "Erreur Telegram : ..."
+  }
+
+
+6.10 Lister les derniers chats connus
+--------------------------------------------------------------------------------
 
 GET /chats
-  Description : Liste les 20 dernières conversations du bot (pour récupérer
-                les chat_id).
-  Réponse     : JSON  [{"chat_id":123456789,"text":"dernier message"},...]
-  Note        : L'utilisateur doit d'abord avoir envoyé un message au bot
-                pour apparaître dans cette liste.
+
+Cet endpoint appelle Telegram getUpdates avec limit=20 et extrait les messages.
+
+Reponse :
+
+  [
+    {
+      "update_id": 123,
+      "chat_id": 123456789,
+      "message_id": 41,
+      "text": "meteo Paris"
+    }
+  ]
+
+Un utilisateur doit d'abord avoir envoye un message au bot pour apparaitre ici.
 
 
-════════════════════════════════════════════════════════════════════════════════
-5. MODE D'EMPLOI DU CHATBOT TELEGRAM
-════════════════════════════════════════════════════════════════════════════════
+7. CHATBOT TELEGRAM
+================================================================================
 
-Pour utiliser le chatbot :
-  1. Démarrer l'application (mvn spring-boot:run)
-  2. Chercher le bot dans Telegram par son @username
-  3. Envoyer /start ou n'importe quel message pour commencer
+Au demarrage de l'application, ListenerUpdateTelegram lance un Timer qui execute
+un polling toutes les 5 secondes.
 
-Le bot répond également en groupe si on l'y ajoute.
+Flux :
 
-────────────────────────────────────────────────────────────────────────────────
-COMMANDES DISPONIBLES
-────────────────────────────────────────────────────────────────────────────────
+  1. Appel a Telegram :
 
-MÉTÉO
-  meteo                   → météo de Paris (ville par défaut)
-  meteo Lyon              → météo de Lyon
-  meteo New York          → fonctionne aussi en anglais pour les villes
+       GET https://api.telegram.org/bot<TOKEN>/getUpdates?offset=<offset>
 
-PRÉVISIONS
-  previsions              → prévisions 5 jours de Paris
-  previsions Bordeaux     → prévisions 5 jours de Bordeaux
-  previsions Tokyo        → fonctionne pour toutes les villes du monde
+  2. Pour chaque Update recu :
 
-BLAGUES
-  blague                  → blague aléatoire du store local
-  blague 3                → blague numéro 3
-  ajouter blague Pourquoi les poissons n'aiment pas l'ordinateur ? | Parce qu'ils ont peur du net !
-                          → ajoute la blague (séparateur obligatoire : " | ")
-  modifier blague 3 Nouvelle question ? | Nouvelle réponse
-                          → modifie la blague #3
-  supprimer blague 3      → supprime la blague #3
+       - seuls les evenements de type message sont traites ;
+       - les messages sans texte sont ignores ;
+       - le texte est transmis a ChatbotService ;
+       - la reponse est envoyee avec TelegramService.
 
-AIDE
-  (tout autre message)    → le bot renvoie la liste des commandes disponibles
+  3. Apres traitement :
 
-────────────────────────────────────────────────────────────────────────────────
-EXEMPLES D'ÉCHANGES
-────────────────────────────────────────────────────────────────────────────────
+       offset = update_id + 1
 
-Vous    : meteo Paris
-Bot     : Météo à Paris : ciel dégagé, 22.3°C
+Ce offset evite de retraiter les memes evenements au polling suivant.
 
-Vous    : previsions Marseille
-Bot     : Prévisions pour Marseille :
-          jeu. 29/05 : ensoleillé, 18.0°C — 26.5°C
-          ven. 30/05 : nuageux, 16.1°C — 23.8°C
-          ...
+Limite :
 
-Vous    : blague
-Bot     : Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ?
-          Parce que sinon ils tomberaient dans le bateau !
+  L'offset est conserve en memoire. Si l'application redemarre, il repart a 0.
+  Telegram peut donc renvoyer des evenements recents deja traites. Pour une
+  version plus robuste, il faudrait persister le dernier offset dans un fichier
+  ou une base de donnees.
 
-Vous    : ajouter blague Quel est le comble pour un électricien ? | De ne pas être au courant !
-Bot     : Blague #4 ajoutée !
+Reponse ciblee :
 
-Vous    : blague 4
-Bot     : #4 — Quel est le comble pour un électricien ?
-          De ne pas être au courant !
-
-Vous    : modifier blague 4 Quel est le comble pour un électricien ? | D'être dans le noir !
-Bot     : Blague #4 modifiée !
-
-Vous    : supprimer blague 4
-Bot     : Blague #4 supprimée !
-
-Vous    : bonjour
-Bot     : Commandes disponibles :
-          • meteo <ville>
-          • previsions <ville>
-          • blague
-          • blague <id>
-          • ajouter blague Question? | Réponse
-          • modifier blague <id> Question? | Réponse
-          • supprimer blague <id>
-
-────────────────────────────────────────────────────────────────────────────────
-ENVOYER UN MESSAGE DEPUIS L'API REST (Postman/curl)
-────────────────────────────────────────────────────────────────────────────────
-
-Étape 1 — Récupérer votre chat_id :
-  Envoyez n'importe quel message au bot dans Telegram, puis appelez :
-  GET http://localhost:9090/chats
-
-  Réponse exemple :
-  [{"chat_id":123456789,"text":"bonjour"}]
-
-Étape 2 — Envoyer un message :
-  POST http://localhost:9090/message
-  Content-Type: application/json
-  {"chat_id":123456789,"text":"Message envoyé depuis l'API !"}
-
-  Si le chat_id est invalide, vous recevez :
-  HTTP 400 - "Erreur Telegram : {"ok":false,"error_code":400,"description":"Bad Request: chat not found"}"
+  Le listener envoie les reponses avec reply_to_message_id egal au message_id du
+  message entrant. Telegram affiche donc la reponse comme une reponse citee au
+  message de l'utilisateur.
 
 
-════════════════════════════════════════════════════════════════════════════════
-6. GESTION DES ERREURS
-════════════════════════════════════════════════════════════════════════════════
+8. COMMANDES TELEGRAM
+================================================================================
 
-Cas d'erreur gérés et réponses produites :
+Meteo :
 
-  Ville météo introuvable
-    → "Ville introuvable : xyz"   (le code HTTP 404 d'OpenWeatherMap est capturé)
+  meteo
+  meteo Paris
+  meteo Lyon
 
-  Chat Telegram invalide (POST /message avec chat_id inexistant)
-    → HTTP 400 avec le message d'erreur Telegram exact
-    → Dans les logs : "Telegram chat_id invalide (12345): ..."
+Previsions :
 
-  Erreur réseau générale
-    → Message texte descriptif + log niveau SEVERE côté serveur
+  previsions
+  previsions Bordeaux
 
-  Store de blagues vide
-    → "Pas de blague disponible !"  (ne peut arriver que si toutes les blagues
-                                     ont été supprimées ; 3 sont pré-chargées)
+Blagues (store interne) :
 
-  Blague introuvable (id inexistant)
-    → HTTP 404 via REST
-    → "Blague #X introuvable." via Telegram
+  blague           (blague au hasard)
+  blague top       (la mieux notee ; aussi : super, bonne)
+  blague nulle     (la moins bien notee ; aussi : pourrie)
+  blague 3         (blague d'id 3)
 
-  Format de commande incorrect (ex : ajouter blague sans " | ")
-    → Le bot renvoie le format attendu :
-       "Format : ajouter blague Question? | Réponse"
+Blague Carambar (API externe) :
 
+  joke             (blague tiree de l'API carambar-jokes)
 
-════════════════════════════════════════════════════════════════════════════════
-7. DÉPENDANCES TECHNIQUES (pom.xml)
-════════════════════════════════════════════════════════════════════════════════
+  Cette commande appelle GET <carambar.api.url>/random. Par defaut l'instance
+  hebergee est utilisee :
 
-  Spring Boot          2.4.5
-    - spring-boot-starter-web     (REST, RestTemplate, Jackson)
-    - spring-boot-starter-test    (JUnit 5)
+    https://carambar-jokes-79ge.onrender.com/api/random
 
-  Lombok               (version gérée par Spring Boot BOM)
-    - Génère automatiquement getters, setters, equals, hashCode, toString
-      via annotations @Data, @Getter, @Setter sur les classes du modèle Telegram.
-    - Note : requiert le plugin lombok dans l'IDE pour éviter les faux positifs.
+  Aucun service local a lancer. Pour utiliser l'instance locale (projet Node
+  carambar-jokes lance via npm start), changer carambar.api.url dans
+  application.properties vers http://localhost:3000/api.
 
-  Java                 17 (Eclipse Adoptium / Temurin)
-  Maven                3.9.15
+  La commande "blague" reste independante et utilise le store interne.
 
+Ajouter une blague :
 
-════════════════════════════════════════════════════════════════════════════════
-8. FLUX DE DONNÉES — COMMENT ÇA FONCTIONNE
-════════════════════════════════════════════════════════════════════════════════
+  ajouter blague Titre | Texte | Note(0-10)
 
-Démarrage de l'application :
-  ChatBotApplication.main()
-    └─ Spring démarre, instancie tous les beans (@Component, @Service, @RestController)
-    └─ JokeService.constructor() → pré-charge 3 blagues en mémoire
-    └─ ListenerUpdateTelegram.run() → démarre un Timer (toutes les 10 secondes)
+  La note est optionnelle (defaut 5). Exemple :
 
-Réception d'un message Telegram :
-  Timer déclenche pollUpdates()
-    └─ GET https://api.telegram.org/bot<TOKEN>/getUpdates?offset=<N>
-    └─ Pour chaque Update reçu :
-         handleUpdate(update)
-           └─ Analyse le texte (toLowerCase)
-           └─ Dispatch selon la commande détectée
-           └─ Appelle l'API externe si nécessaire
-           └─ sendMessage(chatId, réponse)
-               └─ POST https://api.telegram.org/bot<TOKEN>/sendMessage
-         offset = update.updateId + 1   ← évite de retraiter le même message
+  ajouter blague Le cafe | Pourquoi les devs aiment le cafe ? Java. | 6
 
-Appel REST (Postman → serveur) :
-  Client HTTP → Spring DispatcherServlet
-    └─ Route vers MessageRestController selon l'URL et la méthode HTTP
-    └─ Exécute la logique (appel API externe si nécessaire)
-    └─ Jackson sérialise la réponse en JSON ou texte plain
-    └─ HTTP Response → Client
+Modifier une blague :
+
+  modifier blague 3 Nouveau titre | Nouveau texte | 9
+
+Supprimer une blague :
+
+  supprimer blague 3
+
+Tout autre message renvoie l'aide :
+
+  Commandes disponibles :
+  - meteo <ville>
+  - previsions <ville>
+  - blague
+  - blague top (la mieux notee)
+  - blague nulle (la moins bien notee)
+  - blague <id>
+  - joke (blague de l'API locale Carambar)
+  - ajouter blague Titre | Texte | Note(0-10)
+  - modifier blague <id> Titre | Texte | Note(0-10)
+  - supprimer blague <id>
 
 
-════════════════════════════════════════════════════════════════════════════════
-9. LIMITES ET NOTES
-════════════════════════════════════════════════════════════════════════════════
+9. GESTION DES ERREURS
+================================================================================
 
-  - Store en mémoire : les blagues ajoutées/modifiées sont perdues à chaque
-    redémarrage. Pour la persistence, il faudrait une base de données (H2, MySQL).
+Les erreurs REST sont centralisees par GlobalExceptionHandler.
 
-  - Un seul token bot : le bot ne peut pas être utilisé par plusieurs instances
-    simultanées sur le même token.
+Format standard :
 
-  - Polling toutes les 10s : délai de réponse jusqu'à 10 secondes.
-    Pour une réactivité immédiate, il faudrait implémenter les webhooks Telegram.
+  {
+    "status": 404,
+    "error": "Not Found",
+    "message": "..."
+  }
 
-  - Majuscules/minuscules dans les commandes Telegram : le texte est converti
-    en minuscules avant l'analyse (text.toLowerCase()). Le contenu des blagues
-    est conservé dans sa casse d'origine (originalText).
+Cas geres :
+
+- token absent ou invalide : HTTP 401 ;
+- blague inexistante : HTTP 404 ;
+- payload invalide ou champ obligatoire manquant : HTTP 400 ;
+- chat Telegram inexistant : HTTP 400 ou HTTP 502 selon la reponse Telegram ;
+- reponse Telegram illisible : HTTP 502 ;
+- erreur non prevue : HTTP 500.
+
+Cote Telegram, les erreurs d'envoi sont loggees et ne font pas planter le
+polling.
+
+
+10. EXEMPLES D'APPELS POWERSHELL
+================================================================================
+
+Token utilise dans les exemples :
+
+  $headers = @{ 'X-API-Token' = 'interop-secret' }
+
+Obtenir une blague :
+
+  Invoke-WebRequest -UseBasicParsing -Headers $headers -Uri http://localhost:9090/joke
+
+Ajouter une blague :
+
+  $body = @{
+    title = "Le nom de Java"
+    text = "Pourquoi Java porte-t-il ce nom ? Parce que cafe et code vont ensemble."
+    rating = 6
+  } | ConvertTo-Json
+
+  Invoke-WebRequest `
+    -UseBasicParsing `
+    -Headers $headers `
+    -Method POST `
+    -ContentType "application/json" `
+    -Body $body `
+    -Uri http://localhost:9090/jokes
+
+Envoyer un message Telegram :
+
+  $body = @{
+    chat_id = 123456789
+    text = "Message depuis l'API REST"
+  } | ConvertTo-Json
+
+  Invoke-WebRequest `
+    -UseBasicParsing `
+    -Headers $headers `
+    -Method POST `
+    -ContentType "application/json" `
+    -Body $body `
+    -Uri http://localhost:9090/message
+
+Envoyer une reponse citee :
+
+  $body = @{
+    chat_id = 123456789
+    text = "Reponse a un message precis"
+    reply_to_message_id = 41
+  } | ConvertTo-Json
+
+  Invoke-WebRequest `
+    -UseBasicParsing `
+    -Headers $headers `
+    -Method POST `
+    -ContentType "application/json" `
+    -Body $body `
+    -Uri http://localhost:9090/message
+
+
+11. TESTER L'API AVEC POSTMAN
+================================================================================
+
+11.1 Configuration du token
+--------------------------------------------------------------------------------
+
+Toutes les requetes necessitent le token. Deux options :
+
+Option A — en-tete (recommandee) :
+  Dans l'onglet Headers de chaque requete :
+
+    Key   : X-API-Token
+    Value : interop-secret
+
+Option B — variable d'environnement Postman (plus pratique) :
+
+  1. Cliquer sur "New Environment" > nommer "Chatbot Local".
+  2. Ajouter une variable :
+
+       Variable : token
+       Value    : interop-secret
+
+  3. Dans chaque requete, onglet Headers :
+
+       Key   : X-API-Token
+       Value : {{token}}
+
+  4. Selectionner l'environnement "Chatbot Local" en haut a droite.
+
+
+11.2 Meteo actuelle
+--------------------------------------------------------------------------------
+
+  Method : GET
+  URL    : http://localhost:9090/weather?city=Paris
+  Header : X-API-Token: interop-secret
+
+Reponse attendue (200) :
+
+  {
+    "text": "Meteo a Paris : ciel degage, 21.5 degC"
+  }
+
+Pour tester une ville inconnue (doit renvoyer 404 enveloppe en texte) :
+
+  URL : http://localhost:9090/weather?city=VilleInexistante
+
+
+11.3 Previsions a 5 jours
+--------------------------------------------------------------------------------
+
+  Method : GET
+  URL    : http://localhost:9090/forecast?city=Lyon
+  Header : X-API-Token: interop-secret
+
+Reponse attendue (200) :
+
+  {
+    "text": "Previsions pour Lyon :\nlun. 02/06 : pluie, 12 degC - 19 degC\n..."
+  }
+
+
+11.4 Blague aleatoire
+--------------------------------------------------------------------------------
+
+  Method : GET
+  URL    : http://localhost:9090/joke
+  Header : X-API-Token: interop-secret
+
+Blague la mieux notee :
+
+  URL : http://localhost:9090/joke?quality=best
+
+Blague la moins bien notee :
+
+  URL : http://localhost:9090/joke?quality=worst
+
+Reponse attendue (200) :
+
+  {
+    "text": "#3 - Le scarabee (8/10)\nUn scarabee entre dans un bar..."
+  }
+
+
+11.5 Liste des blagues
+--------------------------------------------------------------------------------
+
+  Method : GET
+  URL    : http://localhost:9090/jokes
+  Header : X-API-Token: interop-secret
+
+Recherche par titre :
+
+  URL : http://localhost:9090/jokes?q=plongeurs
+
+Reponse attendue (200) :
+
+  [
+    {
+      "id": 1,
+      "title": "Les plongeurs",
+      "text": "Pourquoi les plongeurs plongent-ils...",
+      "rating": 7
+    },
+    ...
+  ]
+
+
+11.6 Detail d'une blague
+--------------------------------------------------------------------------------
+
+  Method : GET
+  URL    : http://localhost:9090/jokes/1
+  Header : X-API-Token: interop-secret
+
+Pour tester le 404 :
+
+  URL : http://localhost:9090/jokes/999
+
+
+11.7 Ajouter une blague
+--------------------------------------------------------------------------------
+
+  Method       : POST
+  URL          : http://localhost:9090/jokes
+  Header       : X-API-Token: interop-secret
+  Header       : Content-Type: application/json
+  Onglet Body  : raw > JSON
+
+  Corps :
+
+  {
+    "title": "Le cafe des devs",
+    "text": "Pourquoi les devs aiment-ils le cafe ? Parce que Java.",
+    "rating": 6
+  }
+
+Reponse attendue (201) :
+
+  {
+    "id": 6,
+    "title": "Le cafe des devs",
+    "text": "Pourquoi les devs aiment-ils le cafe ? Parce que Java.",
+    "rating": 6
+  }
+
+Pour tester la validation (doit renvoyer 400) :
+
+  {
+    "title": "",
+    "text": "texte sans titre"
+  }
+
+
+11.8 Modifier une blague
+--------------------------------------------------------------------------------
+
+  Method       : PUT
+  URL          : http://localhost:9090/jokes/1
+  Header       : X-API-Token: interop-secret
+  Header       : Content-Type: application/json
+  Onglet Body  : raw > JSON
+
+  Corps :
+
+  {
+    "title": "Les plongeurs (v2)",
+    "text": "Pourquoi les plongeurs plongent-ils toujours en arriere ?",
+    "rating": 8
+  }
+
+Reponse attendue (200) : blague mise a jour.
+Pour tester le 404, utiliser un id inconnu, ex : /jokes/999
+
+
+11.9 Supprimer une blague
+--------------------------------------------------------------------------------
+
+  Method : DELETE
+  URL    : http://localhost:9090/jokes/1
+  Header : X-API-Token: interop-secret
+
+Reponse attendue : 204 No Content (corps vide).
+Pour tester le 404 : supprimer une seconde fois le meme id.
+
+
+11.10 Envoyer un message Telegram
+--------------------------------------------------------------------------------
+
+Prerequis : connaitre le chat_id. Utiliser d'abord GET /chats (section 11.11).
+
+  Method       : POST
+  URL          : http://localhost:9090/message
+  Header       : X-API-Token: interop-secret
+  Header       : Content-Type: application/json
+  Onglet Body  : raw > JSON
+
+  Corps minimal :
+
+  {
+    "chat_id": 123456789,
+    "text": "Bonjour depuis Postman !"
+  }
+
+  Corps avec reponse citee :
+
+  {
+    "chat_id": 123456789,
+    "text": "Reponse citee depuis Postman",
+    "reply_to_message_id": 41
+  }
+
+Reponse attendue (200) :
+
+  {
+    "ok": true,
+    "message_id": 42,
+    "chat_id": 123456789,
+    "text": "Bonjour depuis Postman !"
+  }
+
+Pour tester l'erreur : utiliser un chat_id invalide comme 0.
+L'API doit renvoyer HTTP 400 avec le message d'erreur Telegram.
+
+
+11.11 Lister les chats connus
+--------------------------------------------------------------------------------
+
+  Method : GET
+  URL    : http://localhost:9090/chats
+  Header : X-API-Token: interop-secret
+
+Utile pour recuperer un chat_id avant d'envoyer un message.
+Envoyer d'abord un message au bot depuis Telegram, puis appeler cet endpoint.
+
+Reponse attendue (200) :
+
+  [
+    {
+      "update_id": 123456,
+      "chat_id": 123456789,
+      "message_id": 41,
+      "text": "meteo Paris"
+    }
+  ]
+
+
+11.12 Tester la securite
+--------------------------------------------------------------------------------
+
+Appel sans token (doit renvoyer 401) :
+
+  Method : GET
+  URL    : http://localhost:9090/joke
+  (aucun header X-API-Token)
+
+Reponse attendue :
+
+  HTTP 401
+  {
+    "status": 401,
+    "error": "Unauthorized",
+    "message": "Token d'acces manquant ou invalide"
+  }
+
+Appel avec token dans l'URL (pratique depuis navigateur) :
+
+  http://localhost:9090/joke?access_token=interop-secret
+
+
+13. DEPENDANCES PRINCIPALES
+================================================================================
+
+Dependances Maven importantes :
+
+- spring-boot-starter-web
+- spring-boot-starter-validation
+- spring-boot-starter-actuator
+- jackson-core
+- lombok
+- swagger-annotations
+- validation-api
+
+Plugin Maven important :
+
+- org.openapitools:openapi-generator-maven-plugin
+
+Role du plugin :
+
+  Generer les classes de modele Java a partir de l'OAS au moment de la
+  compilation.
+
+
+14. LIMITES CONNUES
+================================================================================
+
+- Les blagues sont stockees en memoire : elles sont perdues au redemarrage.
+- L'offset Telegram est stocke en memoire : un redemarrage peut retraiter des
+  messages recents.
+- Le polling se fait toutes les 5 secondes : une reponse Telegram peut donc
+  avoir jusqu'a 5 secondes de delai.
+- Le projet utilise un token REST simple, suffisant pour l'exercice mais pas
+  adapte a un environnement de production.
+- Le token Telegram et la cle OpenWeatherMap sont dans application.properties ;
+  en production, ils devraient etre fournis par variables d'environnement.
 
 ================================================================================
-  Fin de la documentation
+Fin de la documentation
 ================================================================================
